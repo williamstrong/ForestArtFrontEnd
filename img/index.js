@@ -1,0 +1,1 @@
+export AbstractHeader from "header/abstract/home_page.png";
