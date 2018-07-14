@@ -14,7 +14,6 @@ export default class HeaderCanvasContainer extends Component {
       width: 0,
     };
 
-
     this.updateDimensions = () => {
       const w = window;
       const d = document;
