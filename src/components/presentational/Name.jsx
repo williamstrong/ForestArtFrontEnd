@@ -1,12 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const Name = ({ name, id }) => (
-    <p id={id}>{name}</p>
+
+
+const Name = ({ name, style }) => (
+  <p style={style}>
+    {name}
+  </p>
 );
 
 Name.propTypes = {
-    name: PropTypes.string.isRequired,
+  style: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default Name;

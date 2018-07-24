@@ -1,22 +1,26 @@
-import React, { Component } from "react";
-import HeaderCanvasContainer from "./container/HeaderCanvasContainer.jsx";
-import NavContainer from "./container/NavContainer.jsx";
-import Preview from "./container/PreviewContainer.jsx";
+import React from 'react';
+import HeaderCanvasContainer from './container/HeaderCanvasContainer';
+import NavContainer from './container/NavContainer';
+import Preview from './container/PreviewContainer';
 
+const headerStyle = {
+  display: 'flex',
+  justifyContent: 'flex-end',
+  marginBottom: '10%',
+};
 
-export default class AppContainer extends Component {
-
-    render() {
-        return (
-            <div>
-                <div>
-                    <NavContainer />
-                    <HeaderCanvasContainer />
-                </div>
-                <div>
-                    <Preview />
-                </div>
-            </div>
-        )
-    }
+function App() {
+  return (
+    <div>
+      <div style={headerStyle}>
+        <NavContainer />
+        <HeaderCanvasContainer />
+      </div>
+      <div>
+        <Preview />
+      </div>
+    </div>
+  );
 }
+
+export default App;
