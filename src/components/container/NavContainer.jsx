@@ -5,7 +5,7 @@ import Name from '../presentational/Name';
 const styles = {
   divStyle: {
     position: 'absolute',
-    left: '10em',
+    left: '5em',
     zIndex: '100',
     paddingTop: '30%',
     display: 'inline-block',
@@ -15,6 +15,25 @@ const styles = {
   },
   name: {
     font: 'bold 7em Relation',
+    marginBottom: '0',
+    marginTop: '0',
+  },
+  navTextStyle: {
+    color: 'black',
+    textDecoration: 'none',
+    font: '2em "Europa-Light"',
+  },
+  navLeft: {
+    borderRight: '1px solid black',
+    paddingRight: '1em',
+  },
+  navCenter: {
+    paddingLeft: '1em',
+    paddingRight: '1em',
+  },
+  navRight: {
+    borderLeft: '1px solid black',
+    paddingLeft: '1em',
   },
 };
 
@@ -26,17 +45,17 @@ export default class NavContainer extends Component {
         {
           name: 'About Me',
           href: '/about_me',
-          id: 'nav_left_side',
+          style: { ...styles.navLeft, ...styles.navTextStyle },
         },
         {
           name: 'Art',
           href: '/art',
-          id: 'nav_center',
+          style: { ...styles.navCenter, ...styles.navTextStyle },
         },
         {
           name: 'Contact',
           href: '/contact',
-          id: 'nav_right_side',
+          style: { ...styles.navRight, ...styles.navTextStyle },
         },
       ],
     };
@@ -44,7 +63,7 @@ export default class NavContainer extends Component {
 
   render() {
     const { pages } = this.state;
-    const navs = pages.map(page => <Nav name={page.name} href={page.href} id={page.id} />);
+    const navs = pages.map(page => <Nav name={page.name} href={page.href} style={page.style} />);
     return (
       <div style={styles.divStyle}>
         <Name name="Alexandra Forest" style={styles.name} />
