@@ -1,6 +1,8 @@
 import React from 'react';
+
 import HeaderCanvasContainer from './container/HeaderCanvasContainer';
 import NavContainer from './container/NavContainer';
+import PreviewContainer from './container/PreviewContainer';
 
 import '../styles/main.css';
 
@@ -16,6 +18,9 @@ function App() {
       <div style={headerStyle}>
         <NavContainer />
         <HeaderCanvasContainer />
+      </div>
+      <div>
+        <PreviewContainer />
       </div>
     </div>
   );
