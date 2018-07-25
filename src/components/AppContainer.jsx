@@ -1,7 +1,8 @@
 import React from 'react';
 import HeaderCanvasContainer from './container/HeaderCanvasContainer';
 import NavContainer from './container/NavContainer';
-import Preview from './container/PreviewContainer';
+
+import '../styles/main.css';
 
 const headerStyle = {
   display: 'flex',
@@ -15,9 +16,6 @@ function App() {
       <div style={headerStyle}>
         <NavContainer />
         <HeaderCanvasContainer />
-      </div>
-      <div>
-        <Preview />
       </div>
     </div>
   );

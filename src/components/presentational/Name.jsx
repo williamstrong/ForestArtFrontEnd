@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-
 const Name = ({ name, style }) => (
   <p style={style}>
     {name}
@@ -10,7 +9,7 @@ const Name = ({ name, style }) => (
 );
 
 Name.propTypes = {
-  style: PropTypes.string.isRequired,
+  style: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
 };
 
