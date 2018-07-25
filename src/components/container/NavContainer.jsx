@@ -1,44 +1,76 @@
 import React, { Component } from 'react';
-import Nav from '../presentational/Nav.jsx';
-import Name from '../presentational/Name.jsx'
+import Nav from '../presentational/Nav';
+import Name from '../presentational/Name';
 
-import styles from '../../styles/main.css';
+const styles = {
+  divStyle: {
+    position: 'absolute',
+    left: '5em',
+    zIndex: '100',
+    paddingTop: '30%',
+    display: 'inline-block',
+  },
+  navStyle: {
+    textAlign: 'center',
+  },
+  name: {
+    font: 'bold 7em Relation',
+    marginBottom: '0',
+    marginTop: '0',
+  },
+  navTextStyle: {
+    color: 'black',
+    textDecoration: 'none',
+    font: '2em "Europa-Light"',
+  },
+  navLeft: {
+    borderRight: '1px solid black',
+    paddingRight: '1em',
+  },
+  navCenter: {
+    paddingLeft: '1em',
+    paddingRight: '1em',
+  },
+  navRight: {
+    borderLeft: '1px solid black',
+    paddingLeft: '1em',
+  },
+};
 
 export default class NavContainer extends Component {
+  constructor() {
+    super();
+    this.state = {
+      pages: [
+        {
+          name: 'About Me',
+          href: '/about_me',
+          style: { ...styles.navLeft, ...styles.navTextStyle },
+        },
+        {
+          name: 'Art',
+          href: '/art',
+          style: { ...styles.navCenter, ...styles.navTextStyle },
+        },
+        {
+          name: 'Contact',
+          href: '/contact',
+          style: { ...styles.navRight, ...styles.navTextStyle },
+        },
+      ],
+    };
+  }
 
-    constructor() {
-        super();
-        this.state = {
-            pages: [
-                {
-                    name: "About Me",
-                    href: "/about_me",
-                    id: "nav_left_side"
-                },
-                {
-                    name: "Art",
-                    href: "/art",
-                    id: "nav_center"
-                },
-                {
-                    name: "Contact",
-                    href: "/contact",
-                    id: "nav_right_side"
-                }
-                ]
-        }
-    }
-
-    render() {
-        const pages = this.state.pages
-        const navs = pages.map((page) => <Nav name={page.name} href={page.href} id={page.id} />);
-        return (
-            <div className="title_nav">
-                <Name name="Alexandra Forest" id="name"/>
-                <nav className="center">
-                        { navs }
-                </nav>
-            </div>
-        )
-    }
+  render() {
+    const { pages } = this.state;
+    const navs = pages.map(page => <Nav name={page.name} href={page.href} style={page.style} />);
+    return (
+      <div style={styles.divStyle}>
+        <Name name="Alexandra Forest" style={styles.name} />
+        <nav style={styles.navStyle}>
+          { navs }
+        </nav>
+      </div>
+    );
+  }
 }
