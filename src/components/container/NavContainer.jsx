@@ -44,7 +44,7 @@ export default class NavContainer extends Component {
       pages: [
         {
           name: 'About Me',
-          href: '/about_me',
+          href: '/aboutme',
           style: { ...styles.navLeft, ...styles.navTextStyle },
         },
         {
