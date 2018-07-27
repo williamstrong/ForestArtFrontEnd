@@ -1,29 +1,21 @@
 import React from 'react';
 
-import HeaderCanvasContainer from './container/HeaderCanvasContainer';
-import NavContainer from './container/NavContainer';
-import PreviewContainer from './container/PreviewContainer';
+import { Route, Switch } from 'react-router-dom';
+
+import Home from './Home';
+import AboutMe from './AboutMe';
+import Art from './Art';
+import Contact from './Contact';
 
 import '../styles/main.css';
 
-const headerStyle = {
-  display: 'flex',
-  justifyContent: 'flex-end',
-  marginBottom: '10%',
-};
-
-function App() {
-  return (
-    <div>
-      <div style={headerStyle}>
-        <NavContainer />
-        <HeaderCanvasContainer />
-      </div>
-      <div>
-        <PreviewContainer />
-      </div>
-    </div>
-  );
-}
+const App = () => (
+  <Switch>
+    <Route exact path="/" component={Home} />
+    <Route path="/aboutme" component={AboutMe} />
+    <Route path="/art" component={Art} />
+    <Route path="/contact" component={Contact} />
+  </Switch>
+);
 
 export default App;
