@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 import React from 'react';
 import PropTypes from 'prop-types';
 
 const Nav = ({ name, href, style }) => (
-  <a href={href} style={style}>
+  <Link to={href} style={style}>
     {name}
-  </a>
+  </Link>
 );
 Nav.propTypes = {
   name: PropTypes.string.isRequired,
