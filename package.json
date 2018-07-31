@@ -32,11 +32,14 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
+    "emotion": "^9.2.6",
     "mini-css-extract-plugin": "^0.4.0",
     "npm": "^6.2.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-emotion": "^9.2.6",
+    "react-router-dom": "^4.3.1",
     "style-loader": "^0.21.0",
     "yarn": "^1.7.0"
   }
