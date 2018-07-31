@@ -1,6 +1,7 @@
 import React from 'react';
 import { css } from 'emotion';
 
+import Footer from './container/Footer';
 import HeaderCanvasContainer from './container/HeaderCanvasContainer';
 import NavContainer from './container/NavContainer';
 import PreviewContainer from './container/PreviewContainer';
@@ -19,6 +20,9 @@ const Home = () => (
     </div>
     <div>
       <PreviewContainer />
+    </div>
+    <div>
+      <Footer />
     </div>
   </div>
 );
