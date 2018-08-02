@@ -30,8 +30,12 @@ const styles = {
     height: '30px',
     width: '30px',
   }),
-};
+  copyright: css({
 
+  }),
+};
+const year = new Date().getFullYear();
+const copyrightText = `Copyright © ${year} Alexandra Forest`;
 const Footer = () => (
   <div className={styles.footer}>
     <div className={styles.flex}>
@@ -42,6 +46,9 @@ const Footer = () => (
         <img src={InstagramLogo} alt={altText} className={styles.instagram} />
       </a>
     </div>
+    <p className={styles.copyright}>
+      {copyrightText}
+    </p>
   </div>
 );
 
