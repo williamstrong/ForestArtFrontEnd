@@ -2,10 +2,10 @@ import React from 'react';
 
 import { Route, Switch } from 'react-router-dom';
 
-import Home from './Home';
-import AboutMe from './AboutMe';
-import Art from './Art';
-import Contact from './Contact';
+import Home from './home/Home';
+import AboutMe from './aboutMe/AboutMe';
+import Art from './art/Art';
+import Contact from './contact/Contact';
 
 import '../styles/main.css';
 
