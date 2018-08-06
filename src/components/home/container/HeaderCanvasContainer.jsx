@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import HeaderCanvas from '../presentational/HeaderCanvas';
 
-import AbstractHeader from '../../../img/header/abstract/home_page.png';
+import AbstractHeader from '../../../../img/header/abstract/home_page.png';
 
 export default class HeaderCanvasContainer extends Component {
   constructor() {

@@ -5,7 +5,7 @@ import ImageBox from '../presentational/ImageBox';
 import Title from '../presentational/Title';
 import Modal from '../presentational/Modal';
 
-import AbstractHeader from '../../../img/header/abstract/home_page.png';
+import AbstractHeader from '../../../../img/header/abstract/home_page.png';
 
 const styles = {
   previewLayout: css({

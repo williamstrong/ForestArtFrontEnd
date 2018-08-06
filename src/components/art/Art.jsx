@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Route, Switch } from 'react-router-dom';
 
-import Categories from './Categories';
-import Category from './container/Category';
+import Categories from './categories/Categories';
+import Category from './category/Category';
 
 const Art = ({ match }) => (
   <Switch>
