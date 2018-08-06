@@ -1,8 +1,8 @@
 import React from 'react';
 import { css } from 'emotion';
-import InstagramLogo from '../../../img/brand_assets/instagram_logo.png';
+import InstagramLogo from '../../../../img/brand_assets/instagram_logo.png';
 
-import Nav from '../presentational/Nav';
+import Nav from '../nav/Nav';
 
 const altText = "Alexandra Forest's instagram page.";
 const igLink = 'http://www.instagram.com/aforestart';
