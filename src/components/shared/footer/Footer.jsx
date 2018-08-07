@@ -9,6 +9,9 @@ const igLink = 'http://www.instagram.com/aforestart';
 
 const styles = {
   footer: css({
+    position: 'absolute',
+    bottom: '0',
+    marginTop: '10%',
     width: '100%',
     background: 'grey',
   }),

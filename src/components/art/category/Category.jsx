@@ -1,9 +1,11 @@
 import React from 'react';
 
+import NavBar from '../../shared/nav/NavBar';
+
+import { pages, name } from '../NavigationConstants';
+
 const Category = () => (
-  <p>
-    Category
-  </p>
+  <NavBar pages={pages} name={name} />
 );
 
 export default Category;
