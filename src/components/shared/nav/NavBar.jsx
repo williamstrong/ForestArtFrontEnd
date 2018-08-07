@@ -57,8 +57,8 @@ const createNavs = (pages) => {
     />));
 };
 
-const NavBar = ({ name, pages }) => (
-  <div className={styles.divStyle}>
+const NavBar = ({ name, pages, positionStyle }) => (
+  <div className={positionStyle}>
     <Name name={name} className={styles.name} />
     <nav className={styles.navStyle}>
       { createNavs(pages) }
@@ -66,9 +66,14 @@ const NavBar = ({ name, pages }) => (
   </div>
 );
 
+NavBar.defaultProps = {
+  positionStyle: styles.divStyle,
+};
+
 NavBar.propTypes = {
   name: PropTypes.string.isRequired,
   pages: PropTypes.array.isRequired,
+  positionStyle: PropTypes.string,
 };
 
 export default NavBar;
