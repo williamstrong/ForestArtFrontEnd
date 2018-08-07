@@ -3,7 +3,7 @@ import { css } from 'emotion';
 
 import Footer from '../shared/footer/Footer';
 import HeaderCanvasContainer from './container/HeaderCanvasContainer';
-import NavContainer from './container/NavContainer';
+import NavBar from '../shared/nav/NavBar';
 import PreviewContainer from './container/PreviewContainer';
 
 const headerStyle = css({
@@ -12,10 +12,26 @@ const headerStyle = css({
   marginBottom: '10%',
 });
 
+
+const pages = [
+  {
+    name: 'About Me',
+    href: '/aboutme',
+  },
+  {
+    name: 'Art',
+    href: '/art',
+  },
+  {
+    name: 'Contact',
+    href: '/contact',
+  },
+];
+
 const Home = () => (
   <div>
     <div className={headerStyle}>
-      <NavContainer />
+      <NavBar name="Alexandra Forest" pages={pages} />
       <HeaderCanvasContainer />
     </div>
     <div>

@@ -1,8 +1,8 @@
 import React from 'react';
 import { css } from 'emotion';
-import InstagramLogo from '../../../img/brand_assets/instagram_logo.png';
+import InstagramLogo from '../../../../img/brand_assets/instagram_logo.png';
 
-import Nav from '../presentational/Nav';
+import Nav from '../nav/Nav';
 
 const altText = "Alexandra Forest's instagram page.";
 const igLink = 'http://www.instagram.com/aforestart';
@@ -41,19 +41,22 @@ const copyrightText = `Copyright © ${year} Alexandra Forest`;
 
 const pages = [
   {
+    key: 0,
     name: 'About Me',
     href: '/aboutme',
-    style: { },
+    style: '',
   },
   {
-    name: 'Ar',
+    key: 1,
+    name: 'Art',
     href: '/art',
-    style: { },
+    style: '',
   },
   {
+    key: 2,
     name: 'Contact',
     href: '/contact',
-    style: { },
+    style: '',
   },
 ];
 
@@ -64,7 +67,13 @@ const Footer = () => (
       A Forest Art
       </p>
       <nav>
-        {pages.map(page => <Nav name={page.name} href={page.href} style={page.style} />)}
+        {pages.map(page => (
+          <Nav
+            key={page.key}
+            name={page.name}
+            href={page.href}
+            className={page.style}
+          />))}
       </nav>
       <a href={igLink} className={styles.link}>
         <img src={InstagramLogo} alt={altText} className={styles.instagram} />

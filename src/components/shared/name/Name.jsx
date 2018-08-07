@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const Name = ({ name, style }) => (
-  <p style={style}>
+const Name = ({ name, className }) => (
+  <p className={className}>
     {name}
   </p>
 );
 
 Name.propTypes = {
-  style: PropTypes.object.isRequired,
+  className: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
 };
 
