@@ -4,28 +4,7 @@ import { css } from 'emotion';
 
 import CategoryBox from '../presentational/CategoryBox';
 
-const categories = [
-  {
-    key: 0,
-    category: 'abstract',
-    name: 'Abstract',
-  },
-  {
-    key: 1,
-    category: 'flowers',
-    name: 'Flowers',
-  },
-  {
-    key: 2,
-    category: 'around-the-world',
-    name: 'Around the World',
-  },
-  {
-    key: 3,
-    category: 'other',
-    name: 'Other',
-  },
-];
+import { categories } from '../../NavigationConstants';
 
 const styles = {
   container: css({
