@@ -1,24 +1,42 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { css } from 'emotion';
 
-import CategoryNav from '../presentational/CategoryLink';
+import CategoryLink from '../presentational/CategoryLink';
 
 import { categories } from '../../NavigationConstants';
 
-export default class CategoryNavigation extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentCategory: props.category,
-    };
-  }
+const styles = {
+  navBar: css({
+    display: 'flex',
+    flexFlow: 'row nowrap',
+    justifyContent: 'space-evenly',
+    alignContent: 'space-between',
+    alignItems: 'center',
 
+    width: '50%',
+    height: '5em',
+    textAlign: 'center',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+
+    backgroundColor: 'gray',
+  }),
+};
+
+export default class CategoryNavigation extends Component {
   render() {
-    const { currentCategory } = this.state;
+    const { onCategoryChange } = this.props;
     return (
-      <div>
+      <div className={styles.navBar}>
         { categories.map(category => (
-          <CategoryNav name={category.name} href={category.url} />
+          <CategoryLink
+            key={category.key}
+            name={category.name}
+            href={category.url}
+            category={category.category}
+            onCategoryChange={newCategory => onCategoryChange(newCategory)}
+          />
         ))}
       </div>
     );
@@ -26,5 +44,5 @@ export default class CategoryNavigation extends Component {
 }
 
 CategoryNavigation.propTypes = {
-  category: PropTypes.string.isRequired,
+  onCategoryChange: PropTypes.func.isRequired,
 };

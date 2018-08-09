@@ -6,19 +6,31 @@ import Nav from '../../../shared/nav/Nav';
 
 const styles = {
   link: css({
-
+    paddingLeft: '1em',
+    paddingRight: '1em',
+    color: 'black',
+    textDecoration: 'none',
+    font: '1em Europa-Light',
   }),
 };
 
-const CategoryNav = ({ name, href }) => (
-  <div>
-    <Nav name={name} href={href} className={styles.link} />
+const CategoryLink = ({
+  name, href, category, onCategoryChange,
+}) => (
+  <div onClick={() => onCategoryChange(category)}>
+    <Nav
+      name={name}
+      href={href}
+      className={styles.link}
+    />
   </div>
 );
 
-CategoryNav.propTypes = {
+CategoryLink.propTypes = {
   name: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  onCategoryChange: PropTypes.func.isRequired,
 };
 
-export default CategoryNav;
+export default CategoryLink;
