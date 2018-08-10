@@ -24,26 +24,21 @@ export default class Category extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      category: props.match.params.category,
     };
-
   }
 
-  onCategoryChange = (newCategory) => {
-    this.setState({
-      category: newCategory,
-    });
-  };
 
   render() {
-    const { category } = this.state;
+    const { match } = this.props;
+    const { params } = match;
+    const { category } = params;
     return (
       <div>
         {/* <HeaderImage /> */}
         <div className={styles.headerImage} />
         {/* End */}
         <NavBar positionStyle={navPosition} pages={pages} name={name} />
-        <CategoryNavigationContainer category={category} onCategoryChange={this.onCategoryChange} />
+        <CategoryNavigationContainer category={category} />
         <CategoryPreviewContainer category={category} />
       </div>
     );

@@ -26,7 +26,6 @@ const styles = {
 
 export default class CategoryNavigation extends Component {
   render() {
-    const { onCategoryChange } = this.props;
     return (
       <div className={styles.navBar}>
         { categories.map(category => (
@@ -35,7 +34,6 @@ export default class CategoryNavigation extends Component {
             name={category.name}
             href={category.url}
             category={category.category}
-            onCategoryChange={newCategory => onCategoryChange(newCategory)}
           />
         ))}
       </div>
@@ -44,5 +42,4 @@ export default class CategoryNavigation extends Component {
 }
 
 CategoryNavigation.propTypes = {
-  onCategoryChange: PropTypes.func.isRequired,
 };

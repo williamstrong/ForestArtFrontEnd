@@ -56,19 +56,8 @@ const styles = {
 };
 
 export default class CategoryPreviewContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      category: props.category,
-    };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({ category: nextProps.category });
-  }
-
   render() {
-    const { category } = this.state;
+    const { category } = this.props;
     return (
       <div>
         <p>

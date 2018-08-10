@@ -15,22 +15,18 @@ const styles = {
 };
 
 const CategoryLink = ({
-  name, href, category, onCategoryChange,
+  name, href,
 }) => (
-  <div onClick={() => onCategoryChange(category)}>
-    <Nav
-      name={name}
-      href={href}
-      className={styles.link}
-    />
-  </div>
+  <Nav
+    name={name}
+    href={href}
+    className={styles.link}
+  />
 );
 
 CategoryLink.propTypes = {
   name: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  onCategoryChange: PropTypes.func.isRequired,
 };
 
 export default CategoryLink;
