@@ -3,7 +3,7 @@ import { css } from 'emotion';
 import PropTypes from 'prop-types';
 
 import CategoryNavigationContainer from './container/CategoryNavigationContainer';
-import CategoryPreviewContainer from './container/CategoryPreviewContainer';
+import PreviewContainer from '../../shared/preview/container/PreviewContainer';
 import NavBar from '../../shared/nav/NavBar';
 
 import { pages, name } from '../NavigationConstants';
@@ -29,9 +29,7 @@ export default class Category extends Component {
 
 
   render() {
-    const { match } = this.props;
-    const { params } = match;
-    const { category } = params;
+    const { match: { params: { category } } } = this.props;
     return (
       <div>
         {/* <HeaderImage /> */}
@@ -39,7 +37,7 @@ export default class Category extends Component {
         {/* End */}
         <NavBar positionStyle={navPosition} pages={pages} name={name} />
         <CategoryNavigationContainer category={category} />
-        <CategoryPreviewContainer category={category} />
+        <PreviewContainer category={category} />
       </div>
     );
   }

@@ -4,7 +4,7 @@ import { css } from 'emotion';
 import Footer from '../shared/footer/Footer';
 import HeaderCanvasContainer from './container/HeaderCanvasContainer';
 import NavBar from '../shared/nav/NavBar';
-import PreviewContainer from './container/PreviewContainer';
+import PreviewContainer from '../shared/preview/container/PreviewContainer';
 
 const headerStyle = css({
   display: 'flex',

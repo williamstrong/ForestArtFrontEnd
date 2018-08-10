@@ -2,43 +2,44 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
 
-import PreviewImage from '../../../shared/preview/PreviewImage';
+import PreviewImage from '../presentational/PreviewImage';
+import src from '../../../../../img/header/abstract/home_page.png';
 
 const fakeImageDate = [
   {
     key: 0,
     name: 'imageName',
-    src: 'src',
+    src,
     description: 'description',
   },
   {
     key: 1,
     name: 'imageName',
-    src: 'src',
+    src,
     description: 'description',
   },
   {
     key: 2,
     name: 'imageName',
-    src: 'src',
+    src,
     description: 'description',
   },
   {
     key: 3,
     name: 'imageName',
-    src: 'src',
+    src,
     description: 'description',
   },
   {
     key: 4,
     name: 'imageName',
-    src: 'src',
+    src,
     description: 'description',
   },
   {
     key: 5,
     name: 'imageName',
-    src: 'src',
+    src,
     description: 'description',
   },
 ];
@@ -46,7 +47,7 @@ const fakeImageDate = [
 const styles = {
   previewContainer: css({
     display: 'flex',
-    flexFlow: 'row wrap',
+    flexFlow: 'column nowrap',
     justifyContent: 'center',
 
     margin: '10%',
@@ -56,6 +57,11 @@ const styles = {
 };
 
 export default class CategoryPreviewContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     const { category } = this.props;
     return (

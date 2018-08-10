@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { css } from 'emotion';
 
 import CategoryLink from '../presentational/CategoryLink';
@@ -25,6 +24,11 @@ const styles = {
 };
 
 export default class CategoryNavigation extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
   render() {
     return (
       <div className={styles.navBar}>
@@ -40,6 +44,3 @@ export default class CategoryNavigation extends Component {
     );
   }
 }
-
-CategoryNavigation.propTypes = {
-};
