@@ -27,12 +27,13 @@ export default class Category extends Component {
       category: props.match.params.category,
     };
 
-    this.onCategoryChange = (newCategory) => {
-      this.setState({
-        category: newCategory,
-      });
-    };
   }
+
+  onCategoryChange = (newCategory) => {
+    this.setState({
+      category: newCategory,
+    });
+  };
 
   render() {
     const { category } = this.state;

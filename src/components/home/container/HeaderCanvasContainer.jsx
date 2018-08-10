@@ -13,16 +13,8 @@ export default class HeaderCanvasContainer extends Component {
       id: 'header_img',
       width: 0,
     };
-
-    this.updateDimensions = () => {
-      const w = window;
-      const d = document;
-      const { documentElement } = d;
-      const body = d.getElementsByTagName('body')[0];
-      const width = w.innerWidth || documentElement.clientWidth || body.clientWidth;
-      this.setState({ width });
-    };
   }
+
 
   componentWillMount() {
     this.updateDimensions();
@@ -40,6 +32,15 @@ export default class HeaderCanvasContainer extends Component {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateDimensions);
+  }
+
+  updateDimensions = () => {
+    const w = window;
+    const d = document;
+    const { documentElement } = d;
+    const body = d.getElementsByTagName('body')[0];
+    const width = w.innerWidth || documentElement.clientWidth || body.clientWidth;
+    this.setState({ width });
   }
 
   draw() {
