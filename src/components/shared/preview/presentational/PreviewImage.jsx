@@ -12,26 +12,39 @@ const styles = {
     paddingBottom: '10%',
 
     '&:hover': {
-      div: {
+
+      '#textContainer': {
         display: 'flex',
         flexFlow: 'column nowrap',
         justifyContent: 'center',
+        opacity: '1',
+
+        margin: '10%',
+
+        height: 'auto',
+        width: 'auto',
+
+        transition: 'all 1s linear',
       },
     },
   }),
   imageContainer: css({
     height: '300',
     width: '300',
+
   }),
-  info: css({
-    display: 'none',
-    margin: '10%',
+  textContainer: css({
+    opacity: '0',
+    transition: 'all 1s linear',
+
+    height: '0',
+    width: '0',
   }),
 };
 
 const PreviewImage = ({ name, src, description }) => (
   <div className={styles.container}>
-    <div className={styles.info}>
+    <div className={styles.textContainer} id="textContainer">
       <p>
         {name}
       </p>
@@ -42,7 +55,7 @@ const PreviewImage = ({ name, src, description }) => (
         {description}
       </p>
     </div>
-    <div className={styles.imageContainer}>
+    <div className={styles.imageContainer} id="imageContainer">
       <img src={src} alt={description} height="300" width="300" />
     </div>
   </div>

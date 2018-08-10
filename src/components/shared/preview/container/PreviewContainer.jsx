@@ -56,19 +56,15 @@ const styles = {
   }),
 };
 
-export default class CategoryPreviewContainer extends Component {
+export default class PreviewContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
   render() {
-    const { category } = this.props;
     return (
       <div>
-        <p>
-          { category }
-        </p>
         <div className={styles.previewContainer}>
           {fakeImageDate.map(imageData => <PreviewImage {...imageData} />)}
         </div>
@@ -76,7 +72,3 @@ export default class CategoryPreviewContainer extends Component {
     );
   }
 }
-
-CategoryPreviewContainer.propTypes = {
-  category: PropTypes.string.isRequired,
-};
