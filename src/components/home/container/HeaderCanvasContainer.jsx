@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
+import { css } from 'emotion';
 
 import HeaderCanvas from '../presentational/HeaderCanvas';
 
 import AbstractHeader from '../../../../img/header/abstract/home_page.png';
+
+const styles = {
+  container: css({
+  }),
+  canvas: css({
+  }),
+};
 
 export default class HeaderCanvasContainer extends Component {
   constructor() {
@@ -14,7 +22,6 @@ export default class HeaderCanvasContainer extends Component {
       width: 0,
     };
   }
-
 
   componentWillMount() {
     this.updateDimensions();
@@ -84,8 +91,8 @@ export default class HeaderCanvasContainer extends Component {
     const { id } = this.state;
 
     return (
-      <div>
-        <canvas ref={this.canvasRef}>
+      <div className={styles.container}>
+        <canvas height="3000" ref={this.canvasRef}>
           <HeaderCanvas
             id={id}
             src={image}
