@@ -1,9 +1,13 @@
 import React from 'react';
 
+import AboutMeNav from './nav/AboutMeNav';
+import ProfileContainer from './containers/ProfileContainer';
+
 const AboutMe = () => (
-  <p>
-About Me
-  </p>
+  <div>
+    <AboutMeNav />
+    <ProfileContainer />
+  </div>
 );
 
 export default AboutMe;
