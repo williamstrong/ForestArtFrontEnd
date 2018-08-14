@@ -4,14 +4,9 @@ import PropTypes from 'prop-types';
 
 import CategoryNavigationContainer from './container/CategoryNavigationContainer';
 import PreviewContainer from '../../shared/preview/container/PreviewContainer';
-import NavBar from '../../shared/nav/NavBar';
+import Header from '../header/Header';
+import ArtNav from '../nav/ArtNav';
 
-import { pages, name } from '../NavigationConstants';
-
-const navPosition = css({
-  padding: '5em',
-  display: 'inline-block',
-});
 
 const styles = {
   headerImage: css({
@@ -32,10 +27,8 @@ export default class Category extends Component {
     const { match: { params: { category } } } = this.props;
     return (
       <div>
-        {/* <HeaderImage /> */}
-        <div className={styles.headerImage} />
-        {/* End */}
-        <NavBar positionStyle={navPosition} pages={pages} name={name} />
+        <Header styles={styles.headerImage} />
+        <ArtNav />
         <CategoryNavigationContainer category={category} />
         <PreviewContainer category={category} />
       </div>

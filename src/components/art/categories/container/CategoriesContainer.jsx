@@ -4,7 +4,7 @@ import { css } from 'emotion';
 
 import CategoryBox from '../presentational/CategoryBox';
 
-import { categories } from '../../NavigationConstants';
+import { categories } from '../../constants/Navigation';
 
 const styles = {
   container: css({

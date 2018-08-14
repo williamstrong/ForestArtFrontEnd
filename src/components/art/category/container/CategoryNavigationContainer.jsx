@@ -3,7 +3,7 @@ import { css } from 'emotion';
 
 import CategoryLink from '../presentational/CategoryLink';
 
-import { categories } from '../../NavigationConstants';
+import { categories } from '../../constants/Navigation';
 
 const styles = {
   navBar: css({

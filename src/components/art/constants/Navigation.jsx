@@ -1,3 +1,4 @@
+import { css } from 'emotion';
 
 export const pages = [
   {
@@ -44,3 +45,8 @@ export const categories = [
     url: '/art/other',
   },
 ];
+
+export const navPosition = css({
+  padding: '5em',
+  display: 'inline-block',
+});

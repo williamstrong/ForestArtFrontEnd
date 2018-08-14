@@ -2,8 +2,7 @@ import React from 'react';
 import { css } from 'emotion';
 
 import CategoiesContainer from './container/CategoriesContainer';
-import NavBar from '../../shared/nav/NavBar';
-import { pages, name } from '../NavigationConstants';
+import ArtNav from '../nav/ArtNav';
 
 const navPositionStyle = css({
   textAlign: 'center',
@@ -12,11 +11,13 @@ const navPositionStyle = css({
 
 const Categories = ({ match }) => (
   <div>
-    <div>
-      <NavBar name={name} pages={pages} positionStyle={navPositionStyle} />
-    </div>
+    <ArtNav />
     <CategoiesContainer match={match} />
   </div>
 );
+
+Categories.propTypes = {
+
+};
 
 export default Categories;
