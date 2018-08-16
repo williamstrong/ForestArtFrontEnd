@@ -3,7 +3,7 @@ import { css } from 'emotion';
 
 import PreviewImage from '../presentational/PreviewImage';
 
-const src = 'https://s3-us-west-1.amazonaws.com/aforest-web/images/home_page@1x.jpg';
+const src = 'https://s3-us-west-1.amazonaws.com/aforest-web/media/images/header/home/home_page@1x.jpg';
 
 const fakeImageDate = [
   {
