@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { css } from 'emotion';
 
 import PreviewImage from '../presentational/PreviewImage';
-import src from '../../../../../img/header/abstract/home_page.png';
+
+const src = 'https://s3-us-west-1.amazonaws.com/aforest-web/images/home_page@1x.jpg';
 
 const fakeImageDate = [
   {

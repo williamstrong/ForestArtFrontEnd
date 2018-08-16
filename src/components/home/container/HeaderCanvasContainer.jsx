@@ -3,7 +3,14 @@ import { css } from 'emotion';
 
 import HeaderCanvas from '../presentational/HeaderCanvas';
 
-import AbstractHeader from '../../../../img/header/abstract/home_page.png';
+
+const src = {
+  srcLocation: 'https://s3-us-west-1.amazonaws.com/aforest-web/media/images/header/home',
+  srcStandard: 'https://s3-us-west-1.amazonaws.com/aforest-web/media/images/header/home/home_page@1x.jpg',
+  srcName: 'home_page',
+  srcType: 'jpg',
+  srcSizes: ['1x', '2x'],
+};
 
 const styles = {
   container: css({
@@ -17,7 +24,7 @@ export default class HeaderCanvasContainer extends Component {
     super();
     this.canvasRef = React.createRef();
     this.state = {
-      image: AbstractHeader,
+      image: src,
       id: 'header_img',
       width: 0,
     };
@@ -83,7 +90,7 @@ export default class HeaderCanvasContainer extends Component {
     };
 
     const { image } = this.state;
-    img.src = image;
+    img.src = image.srcStandard;
   }
 
   render() {

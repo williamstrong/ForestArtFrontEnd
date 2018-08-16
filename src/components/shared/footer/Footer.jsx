@@ -1,11 +1,11 @@
 import React from 'react';
 import { css } from 'emotion';
-import InstagramLogo from '../../../../img/brand_assets/instagram_logo.png';
 
 import Nav from '../nav/Nav';
 
 const altText = "Alexandra Forest's instagram page.";
 const igLink = 'http://www.instagram.com/aforestart';
+const igLogo = 'https://s3-us-west-1.amazonaws.com/aforest-web/media/images/assets/glyph-logo_May2016.png';
 
 const styles = {
   footer: css({
@@ -77,7 +77,7 @@ const Footer = () => (
           />))}
       </nav>
       <a href={igLink} className={styles.link}>
-        <img src={InstagramLogo} alt={altText} className={styles.instagram} />
+        <img src={igLogo} alt={altText} className={styles.instagram} />
       </a>
     </div>
     <p className={styles.copyright}>

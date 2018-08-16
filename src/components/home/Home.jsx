@@ -12,7 +12,6 @@ const headerStyle = css({
   marginBottom: '10%',
 });
 
-
 const pages = [
   {
     name: 'About Me',
