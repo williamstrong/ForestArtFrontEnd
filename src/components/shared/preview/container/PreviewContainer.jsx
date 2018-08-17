@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { css } from 'emotion';
+import PropTypes from 'prop-types';
 
 import PreviewImage from '../presentational/PreviewImage';
 
@@ -18,10 +19,30 @@ const styles = {
 export default class PreviewContainer extends Component {
   constructor(props) {
     super(props);
-    this.fetchImageData();
+    const { category } = props;
+    this.fetchImageData(category);
     this.state = {
-      allImages: [],
+      images: [],
     };
+  }
+
+  componentDidUpdate(prevProps) {
+    const { category } = this.props;
+    const { prevCategory } = prevProps;
+    if (category !== prevCategory) {
+      this.fetchImageData(category);
+    }
+  }
+
+  query = (category) => {
+    if (category != null) {
+      return JSON.stringify({
+        query: `{ images(category: "${category}") { id name sourceStandard description altText } }`,
+      });
+    }
+    return JSON.stringify({
+      query: '{ images { id name sourceStandard description altText } }',
+    });
   }
 
   fetchImageData = category => (
@@ -31,23 +52,31 @@ export default class PreviewContainer extends Component {
         'Content-Type': 'application/json',
         Accept: 'application/json',
       },
-      body: JSON.stringify({ query: '{ allImages { id name sourceStandard description altText } }' }),
+      body: this.query(category),
     })
       .then(r => r.json())
       .then((data) => {
-        const { data: { allImages } } = data;
-        this.setState({ allImages });
+        const { data: { images } } = data;
+        this.setState({ images });
       })
   );
 
   render() {
-    const { allImages } = this.state;
+    const { images } = this.state;
     return (
       <div>
         <div className={styles.previewContainer}>
-          {allImages.map(imageData => <PreviewImage {...imageData} />)}
+          {images.map(imageData => <PreviewImage {...imageData} />)}
         </div>
       </div>
     );
   }
 }
+
+PreviewContainer.propTypes = {
+  category: PropTypes.string,
+};
+
+PreviewContainer.defaultProps = {
+  category: null,
+};
