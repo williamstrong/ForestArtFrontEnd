@@ -42,28 +42,25 @@ const styles = {
   }),
 };
 
-const PreviewImage = ({ name, src, description }) => (
+const PreviewImage = ({ name, sourceStandard, description }) => (
   <div className={styles.container}>
     <div className={styles.textContainer} id="textContainer">
       <p>
         {name}
       </p>
       <p>
-        {src}
-      </p>
-      <p>
         {description}
       </p>
     </div>
     <div className={styles.imageContainer} id="imageContainer">
-      <img src={src} alt={description} height="300" width="300" />
+      <img src={`https://s3-us-west-1.amazonaws.com/aforest-web/media/${sourceStandard}`} alt={description} height="300" width="300" />
     </div>
   </div>
 );
 
 PreviewImage.propTypes = {
   name: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
+  sourceStandard: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 };
 
