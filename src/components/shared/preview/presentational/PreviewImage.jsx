@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
 
+import getImageSource from '../../../../util/Source';
+
 const styles = {
   container: css({
     display: 'flex',
@@ -40,20 +42,23 @@ const styles = {
     height: '0',
     width: '0',
   }),
+  text: css({
+    textDecoration: 'none',
+  }),
 };
 
 const PreviewImage = ({ name, sourceStandard, description }) => (
   <div className={styles.container}>
     <div className={styles.textContainer} id="textContainer">
-      <p>
+      <p className={styles.text}>
         {name}
       </p>
-      <p>
+      <p className={styles.text}>
         {description}
       </p>
     </div>
     <div className={styles.imageContainer} id="imageContainer">
-      <img src={`https://s3-us-west-1.amazonaws.com/aforest-web/media/${sourceStandard}`} alt={description} height="300" width="300" />
+      <img src={getImageSource(sourceStandard)} alt={description} height="300" width="300" />
     </div>
   </div>
 );

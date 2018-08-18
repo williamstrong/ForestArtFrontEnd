@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { css } from 'emotion';
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
 import PreviewImage from '../presentational/PreviewImage';
 
 const styles = {
@@ -37,11 +38,11 @@ export default class PreviewContainer extends Component {
   query = (category) => {
     if (category != null) {
       return JSON.stringify({
-        query: `{ images(category: "${category}") { id name sourceStandard description altText } }`,
+        query: `{ images(category: "${category}") { id name category sourceStandard description altText } }`,
       });
     }
     return JSON.stringify({
-      query: '{ images { id name sourceStandard description altText } }',
+      query: '{ images { id name category sourceStandard description altText } }',
     });
   }
 
@@ -66,7 +67,13 @@ export default class PreviewContainer extends Component {
     return (
       <div>
         <div className={styles.previewContainer}>
-          {images.map(imageData => <PreviewImage {...imageData} />)}
+          {images.map(imageData => (
+            <Link
+              key={imageData.id}
+              to={`/art/${imageData.category}/${imageData.name}`}
+            >
+              <PreviewImage {...imageData} />
+            </Link>))}
         </div>
       </div>
     );

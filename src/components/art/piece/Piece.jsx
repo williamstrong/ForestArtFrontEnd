@@ -2,41 +2,30 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
 
-import Header from '../header/Header';
 import ArtNav from '../nav/ArtNav';
 import PieceContainer from './container/PieceContainer';
+import CategoryNavigation from '../category/container/CategoryNavigationContainer';
 
-
-function fetchPieceData(category, piece) {
-  return ({
-    key: 0,
-    name: `${category} + ${piece}`,
-    src: '',
-    description: `${category} piece ${piece}`,
-  });
-}
+const styles = {
+  categoryNavPosition: css({
+    marginRight: 'auto',
+  }),
+};
 
 export default class Piece extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+    };
   }
 
   render() {
     const { match: { params: { category, piece } } } = this.props;
-    const data = fetchPieceData(category, piece);
     return (
       <div>
-        <Header
-          styles={
-            css({
-              width: '100%',
-              height: '300',
-            })
-          }
-        />
         <ArtNav />
-        <PieceContainer {...data} />
+        <CategoryNavigation stylePosition={styles.categoryNavPosition} />
+        <PieceContainer category={category} piece={piece} />
       </div>
     );
   }
@@ -45,8 +34,8 @@ export default class Piece extends Component {
 Piece.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      category: PropTypes.string,
-      piece: PropTypes.string,
+      category: PropTypes.string.isRequired,
+      piece: PropTypes.string.isRequired,
     }),
   }).isRequired,
 };
