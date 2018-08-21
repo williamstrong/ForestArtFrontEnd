@@ -72,7 +72,10 @@ NavBar.defaultProps = {
 
 NavBar.propTypes = {
   name: PropTypes.string.isRequired,
-  pages: PropTypes.array.isRequired,
+  pages: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    href: PropTypes.string,
+  })).isRequired,
   positionStyle: PropTypes.string,
 };
 
