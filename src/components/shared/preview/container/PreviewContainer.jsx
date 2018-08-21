@@ -38,11 +38,11 @@ export default class PreviewContainer extends Component {
   query = (category) => {
     if (category != null) {
       return JSON.stringify({
-        query: `{ images(category: "${category}") { id name category sourceStandard description altText } }`,
+        query: `{ images(category: "${category}") { id name category { name } sourceStandard description altText } }`,
       });
     }
     return JSON.stringify({
-      query: '{ images { id name category sourceStandard description altText } }',
+      query: '{ images { id name category { name } sourceStandard description altText } }',
     });
   }
 
