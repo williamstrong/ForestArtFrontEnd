@@ -1,0 +1,104 @@
+# source: http://192.168.99.100/graphql/
+# timestamp: Wed Aug 22 2018 15:01:46 GMT-0700 (PDT)
+
+type CategoryNode implements Node {
+  """The ID of the object."""
+  id: ID!
+
+  """Category name."""
+  name: String!
+
+  """Image that will be shown on the category preview."""
+  image: ImageNode
+}
+
+type CategoryNodeConnection {
+  pageInfo: PageInfo!
+  edges: [CategoryNodeEdge]!
+}
+
+type CategoryNodeEdge {
+  """The item at the end of the edge"""
+  node: CategoryNode
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+"""
+The `DateTime` scalar type represents a DateTime
+value as specified by
+[iso8601](https://en.wikipedia.org/wiki/ISO_8601).
+"""
+scalar DateTime
+
+type ImageNode implements Node {
+  """The ID of the object."""
+  id: ID!
+
+  """Title of Image"""
+  title: String!
+
+  """Name of Image"""
+  name: String!
+  category: CategoryNode
+
+  """URL of the image location (S3... etc.)"""
+  sourceStandard: String!
+
+  """URL of the image location (S3... etc.)"""
+  sourceSmall: String!
+
+  """URL of the image location (S3... etc.)"""
+  sourceLarge: String!
+
+  """
+  Description of the image. Used for alt text if no alt text is provided.
+  """
+  description: String!
+
+  """Alt text"""
+  altText: String!
+  creationDate: DateTime!
+  publishDate: DateTime!
+}
+
+type ImageNodeConnection {
+  pageInfo: PageInfo!
+  edges: [ImageNodeEdge]!
+}
+
+type ImageNodeEdge {
+  """The item at the end of the edge"""
+  node: ImageNode
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+"""An object with an ID"""
+interface Node {
+  """The ID of the object."""
+  id: ID!
+}
+
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+}
+
+type Query {
+  """The ID of the object"""
+  image(id: ID!): ImageNode
+  images(before: String, after: String, first: Int, last: Int, id: ID, name: String, category: ID): ImageNodeConnection
+  category(before: String, after: String, first: Int, last: Int, name: String): CategoryNodeConnection
+}

@@ -1,8 +1,12 @@
+// @flow
+
 import React, { Component } from 'react';
 import { css } from 'emotion';
-import PropTypes from 'prop-types';
-
+import { graphql, QueryRenderer } from 'react-relay';
 import { Link } from 'react-router-dom';
+
+import environment from '../../../../util/RelayEnvironment';
+
 import PreviewImage from '../presentational/PreviewImage';
 
 const styles = {
@@ -17,73 +21,80 @@ const styles = {
   }),
 };
 
-export default class PreviewContainer extends Component {
-  constructor(props) {
-    super(props);
-    const { category } = props;
-    this.fetchImageData(category);
-    this.state = {
-      images: [],
-    };
-  }
+type Props = {
+  category?: string,
+}
 
-  componentDidUpdate(prevProps) {
-    const { category } = this.props;
-    const { prevCategory } = prevProps;
-    if (category !== prevCategory) {
-      this.fetchImageData(category);
-    }
+export default class PreviewContainer extends Component<Props> {
+  static defaultProps = {
+    category: null,
   }
-
-  query = (category) => {
-    if (category != null) {
-      return JSON.stringify({
-        query: `{ images(category: "${category}") { id name category { name } sourceStandard description altText } }`,
-      });
-    }
-    return JSON.stringify({
-      query: '{ images { id name category { name } sourceStandard description altText } }',
-    });
-  }
-
-  fetchImageData = category => (
-    fetch('/graphql/?', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: this.query(category),
-    })
-      .then(r => r.json())
-      .then((data) => {
-        const { data: { images } } = data;
-        this.setState({ images });
-      })
-  );
 
   render() {
-    const { images } = this.state;
+    const { category } = this.props;
     return (
-      <div>
-        <div className={styles.previewContainer}>
-          {images.map(imageData => (
-            <Link
-              key={imageData.id}
-              to={`/art/${imageData.category}/${imageData.name}`}
-            >
-              <PreviewImage {...imageData} />
-            </Link>))}
-        </div>
-      </div>
+      <QueryRenderer
+        environment={environment}
+        query={graphql`
+          query PreviewContainerQuery {
+            images(category: "$category") {
+              edges {
+                node {
+                  id
+                  name
+                  category {
+                    name
+                  }
+                  sourceStandard
+                  description
+                  altText
+                }
+              }
+            }
+          }`
+        }
+        variables={{ category }}
+        render={({ error, props }) => {
+          if (error) {
+            return (
+              <div>
+                Error!
+              </div>
+            );
+          }
+          if (!props) {
+            return (
+              <div>
+                Loading...
+              </div>
+            );
+          }
+          const { images: { edges } } = props;
+          return (
+            <div>
+              <div className={styles.previewContainer}>
+                {edges.map((imageData) => {
+                  const {
+                    id, imageCategory, name, description, sourceStandard,
+                  } = imageData.node;
+                  return (
+                    <Link
+                      key={id}
+                      to={`/art/${imageCategory}/${name}`}
+                    >
+                      <PreviewImage
+                        name={name}
+                        sourceStandard={sourceStandard}
+                        description={description}
+                      />
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        }}
+      />
     );
   }
 }
-
-PreviewContainer.propTypes = {
-  category: PropTypes.string,
-};
-
-PreviewContainer.defaultProps = {
-  category: null,
-};
