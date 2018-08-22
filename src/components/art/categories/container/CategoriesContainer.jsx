@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { css } from 'emotion';
+import { graphql, QueryRenderer } from 'react-relay';
+
+import environment from '../../../../util/RelayEnvironment';
 
 import CategoryBox from '../presentational/CategoryBox';
 
@@ -12,54 +15,66 @@ const styles = {
   }),
 };
 
-const query = () => (
-  JSON.stringify({ query: '{ categories { id name image { name sourceStandard altText } } }' })
-);
-
 export default class CategoiesContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.fetchCategoryImages({ images: [] });
-    this.state = {
-      categories: [],
-    };
-  }
-
-  fetchCategoryImages = () => (
-    fetch('/graphql/?', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: query(),
-    })
-      .then(r => r.json())
-      .then((data) => {
-        const { data: { categories } } = data;
-        this.setState({ categories });
-      })
-  )
-
   render() {
-    const { categories } = this.state;
     const { match: { url } } = this.props;
     return (
-      <div className={styles.container}>
-        { categories.map((category) => {
-          const { image } = category;
+      <QueryRenderer
+        environment={environment}
+        query={graphql`
+          query CategoriesContainerQuery {
+            categories {
+              edges {
+                node {
+                  id
+                  name
+                  image {
+                    name
+                    sourceStandard
+                    altText
+                  }
+                }
+              }
+            }
+          }
+        `}
+        variables={{}}
+        render={({ error, props }) => {
+          if (error) {
+            return (
+              <div>
+                Error!
+              </div>
+            );
+          }
+          if (!props) {
+            return (
+              <div>
+                Loading...
+              </div>
+            );
+          }
+          const { categories: { edges } } = props;
           return (
-            <CategoryBox
-              key={category.id}
-              url={url}
-              category={category.name}
-              name={image.name}
-              image={image.sourceStandard}
-              altText={image.altText}
-            />);
-        })
-        }
-      </div>
+            <div className={styles.container}>
+              { edges.map((edge) => {
+                const { node: category } = edge;
+                const { image } = category;
+                return (
+                  <CategoryBox
+                    key={category.id}
+                    url={url}
+                    category={category.name}
+                    name={image.name}
+                    image={image.sourceStandard}
+                    altText={image.altText}
+                  />
+                );
+              })}
+            </div>
+          );
+        }}
+      />
     );
   }
 }
