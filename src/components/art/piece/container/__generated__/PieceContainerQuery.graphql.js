@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 4a8366d472a83652cfa4f84e6f8b4753
+ * @relayHash 7408a7a1be9782282d98129ea204ea5f
  */
 
 /* eslint-disable */
@@ -9,48 +9,40 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-export type PreviewContainerQueryVariables = {|
-  category: string
+export type PieceContainerQueryVariables = {|
+  category: string,
+  piece: string,
 |};
-export type PreviewContainerQueryResponse = {|
+export type PieceContainerQueryResponse = {|
   +images: ?{|
     +edges: $ReadOnlyArray<?{|
       +node: ?{|
-        +id: string,
         +name: string,
-        +category: ?{|
-          +name: string
-        |},
         +sourceStandard: string,
         +description: string,
-        +altText: string,
       |}
     |}>
   |}
 |};
-export type PreviewContainerQuery = {|
-  variables: PreviewContainerQueryVariables,
-  response: PreviewContainerQueryResponse,
+export type PieceContainerQuery = {|
+  variables: PieceContainerQueryVariables,
+  response: PieceContainerQueryResponse,
 |};
 */
 
 
 /*
-query PreviewContainerQuery(
+query PieceContainerQuery(
   $category: String!
+  $piece: String!
 ) {
-  images(category_Name: $category) {
+  images(category_Name: $category, name: $piece) {
     edges {
       node {
-        id
         name
-        category {
-          name
-          id
-        }
         sourceStandard
         description
-        altText
+        id
       }
     }
   }
@@ -64,6 +56,12 @@ var v0 = [
     "name": "category",
     "type": "String!",
     "defaultValue": null
+  },
+  {
+    "kind": "LocalArgument",
+    "name": "piece",
+    "type": "String!",
+    "defaultValue": null
   }
 ],
 v1 = [
@@ -72,53 +70,45 @@ v1 = [
     "name": "category_Name",
     "variableName": "category",
     "type": "String"
+  },
+  {
+    "kind": "Variable",
+    "name": "name",
+    "variableName": "piece",
+    "type": "String"
   }
 ],
 v2 = {
-  "kind": "ScalarField",
-  "alias": null,
-  "name": "id",
-  "args": null,
-  "storageKey": null
-},
-v3 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "name",
   "args": null,
   "storageKey": null
 },
-v4 = {
+v3 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "sourceStandard",
   "args": null,
   "storageKey": null
 },
-v5 = {
+v4 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "description",
-  "args": null,
-  "storageKey": null
-},
-v6 = {
-  "kind": "ScalarField",
-  "alias": null,
-  "name": "altText",
   "args": null,
   "storageKey": null
 };
 return {
   "kind": "Request",
   "operationKind": "query",
-  "name": "PreviewContainerQuery",
+  "name": "PieceContainerQuery",
   "id": null,
-  "text": "query PreviewContainerQuery(\n  $category: String!\n) {\n  images(category_Name: $category) {\n    edges {\n      node {\n        id\n        name\n        category {\n          name\n          id\n        }\n        sourceStandard\n        description\n        altText\n      }\n    }\n  }\n}\n",
+  "text": "query PieceContainerQuery(\n  $category: String!\n  $piece: String!\n) {\n  images(category_Name: $category, name: $piece) {\n    edges {\n      node {\n        name\n        sourceStandard\n        description\n        id\n      }\n    }\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
-    "name": "PreviewContainerQuery",
+    "name": "PieceContainerQuery",
     "type": "Query",
     "metadata": null,
     "argumentDefinitions": v0,
@@ -152,21 +142,7 @@ return {
                 "selections": [
                   v2,
                   v3,
-                  {
-                    "kind": "LinkedField",
-                    "alias": null,
-                    "name": "category",
-                    "storageKey": null,
-                    "args": null,
-                    "concreteType": "CategoryNode",
-                    "plural": false,
-                    "selections": [
-                      v3
-                    ]
-                  },
-                  v4,
-                  v5,
-                  v6
+                  v4
                 ]
               }
             ]
@@ -177,7 +153,7 @@ return {
   },
   "operation": {
     "kind": "Operation",
-    "name": "PreviewContainerQuery",
+    "name": "PieceContainerQuery",
     "argumentDefinitions": v0,
     "selections": [
       {
@@ -209,22 +185,14 @@ return {
                 "selections": [
                   v2,
                   v3,
-                  {
-                    "kind": "LinkedField",
-                    "alias": null,
-                    "name": "category",
-                    "storageKey": null,
-                    "args": null,
-                    "concreteType": "CategoryNode",
-                    "plural": false,
-                    "selections": [
-                      v3,
-                      v2
-                    ]
-                  },
                   v4,
-                  v5,
-                  v6
+                  {
+                    "kind": "ScalarField",
+                    "alias": null,
+                    "name": "id",
+                    "args": null,
+                    "storageKey": null
+                  }
                 ]
               }
             ]
@@ -236,5 +204,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '87221298122a443f465226a13c65d3f5';
+(node/*: any*/).hash = 'ea48e09f56515e5c992fb283952f3729';
 module.exports = node;

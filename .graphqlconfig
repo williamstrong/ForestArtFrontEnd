@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "AForest": {
+      "schemaPath": "data/schema.graphql",
+      "extensions": {
+        "endpoints": {
+          "dev": "http://192.168.99.100/graphql/"
+        }
+      }
+    }
+  }
+}

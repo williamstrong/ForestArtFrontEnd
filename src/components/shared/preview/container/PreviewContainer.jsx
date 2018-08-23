@@ -36,8 +36,8 @@ export default class PreviewContainer extends Component<Props> {
       <QueryRenderer
         environment={environment}
         query={graphql`
-          query PreviewContainerQuery {
-            images(category: "$category") {
+          query PreviewContainerQuery($category: String!) {
+            images(category_Name: $category) {
               edges {
                 node {
                   id
@@ -75,12 +75,13 @@ export default class PreviewContainer extends Component<Props> {
               <div className={styles.previewContainer}>
                 {edges.map((imageData) => {
                   const {
-                    id, imageCategory, name, description, sourceStandard,
+                    id, category: imageCategory, name, description, sourceStandard,
                   } = imageData.node;
+                  const { name: imageCategoryName } = imageCategory;
                   return (
                     <Link
                       key={id}
-                      to={`/art/${imageCategory}/${name}`}
+                      to={`/art/${imageCategoryName}/${name}`}
                     >
                       <PreviewImage
                         name={name}

@@ -1,5 +1,5 @@
 # source: http://192.168.99.100/graphql/
-# timestamp: Wed Aug 22 2018 16:42:38 GMT-0700 (PDT)
+# timestamp: Thu Aug 23 2018 10:55:38 GMT-0700 (PDT)
 
 type CategoryNode implements Node {
   """The ID of the object."""
@@ -99,7 +99,7 @@ type PageInfo {
 type Query {
   """The ID of the object"""
   image(id: ID!): ImageNode
-  images(before: String, after: String, first: Int, last: Int, id: ID, name: String, category: ID): ImageNodeConnection
+  images(before: String, after: String, first: Int, last: Int, id: ID, name: String, category_Name: String): ImageNodeConnection
 
   """The ID of the object"""
   category(id: ID!): CategoryNode
