@@ -27,7 +27,7 @@ type Props = {
 
 export default class PreviewContainer extends Component<Props> {
   static defaultProps = {
-    category: null,
+    category: "",
   }
 
   render() {
