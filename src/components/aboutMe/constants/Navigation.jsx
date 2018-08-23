@@ -1,3 +1,5 @@
+/*  @flow */
+
 import { css } from 'emotion';
 
 export const pages = [

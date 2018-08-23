@@ -10,20 +10,24 @@ const fetchProfileData = () => (
   }
 );
 
-export default class ProfileContainer extends Component {
-  constructor() {
-    super();
+type Props = {
+  /*
+  description?: string,
+  imageSrc?: string,
+  imageAlt: string,
+  */
+}
 
-    const profileData = fetchProfileData();
-    this.state = {
-      profileData,
-    };
+export default class ProfileContainer extends Component<Props> {
+
+  static defaultProps = {
+    ...fetchProfileData(),
   }
 
   render() {
-    const { profileData } = this.state;
+    const { description, imageSrc, imageAlt } = this.props;
     return (
-      <Profile {...profileData} />
+      <Profile description={description} imageSrc={imageSrc} imageAlt={imageAlt} />
     );
   }
 }
