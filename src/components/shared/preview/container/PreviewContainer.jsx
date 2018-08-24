@@ -27,7 +27,7 @@ type Props = {
 
 export default class PreviewContainer extends Component<Props> {
   static defaultProps = {
-    category: "",
+    category: '',
   }
 
   render() {
@@ -37,7 +37,7 @@ export default class PreviewContainer extends Component<Props> {
         environment={environment}
         query={graphql`
           query PreviewContainerQuery($category: String!) {
-            images(category_Name: $category) {
+            images(first: 10 category_Name: $category) {
               edges {
                 node {
                   id

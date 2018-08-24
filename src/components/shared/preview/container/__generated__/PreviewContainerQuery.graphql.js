@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 4a8366d472a83652cfa4f84e6f8b4753
+ * @relayHash 29457c26919d47bb71d4ae8d218f14f2
  */
 
 /* eslint-disable */
@@ -39,7 +39,7 @@ export type PreviewContainerQuery = {|
 query PreviewContainerQuery(
   $category: String!
 ) {
-  images(category_Name: $category) {
+  images(first: 10, category_Name: $category) {
     edges {
       node {
         id
@@ -72,6 +72,12 @@ v1 = [
     "name": "category_Name",
     "variableName": "category",
     "type": "String"
+  },
+  {
+    "kind": "Literal",
+    "name": "first",
+    "value": 10,
+    "type": "Int"
   }
 ],
 v2 = {
@@ -114,7 +120,7 @@ return {
   "operationKind": "query",
   "name": "PreviewContainerQuery",
   "id": null,
-  "text": "query PreviewContainerQuery(\n  $category: String!\n) {\n  images(category_Name: $category) {\n    edges {\n      node {\n        id\n        name\n        category {\n          name\n          id\n        }\n        sourceStandard\n        description\n        altText\n      }\n    }\n  }\n}\n",
+  "text": "query PreviewContainerQuery(\n  $category: String!\n) {\n  images(first: 10, category_Name: $category) {\n    edges {\n      node {\n        id\n        name\n        category {\n          name\n          id\n        }\n        sourceStandard\n        description\n        altText\n      }\n    }\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -236,5 +242,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '87221298122a443f465226a13c65d3f5';
+(node/*: any*/).hash = 'dd37f50816497251b14407a5f5269070';
 module.exports = node;
