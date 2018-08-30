@@ -7,9 +7,7 @@ import AboutMe from './aboutMe/AboutMe';
 import Art from './art/Art';
 import Contact from './contact/Contact';
 
-import '../styles/main.css';
-
-const App = () => (
+const Routes = () => (
   <Switch>
     <Route exact path="/" component={Home} />
     <Route path="/aboutme" component={AboutMe} />
@@ -18,4 +16,4 @@ const App = () => (
   </Switch>
 );
 
-export default App;
+export default Routes;

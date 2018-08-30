@@ -1,63 +1,60 @@
-
 const path = require('path');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const nodeExternals = require('webpack-node-externals');
 
-module.exports = {
-  entry: {
-    bundle: './src/index.jsx',
-  },
+const browserConfig = {
+  entry: './src/browser/index.jsx',
   output: {
-    path: path.join(__dirname, '/dist/'),
-    filename: '[name].js',
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
     publicPath: '/',
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
         },
       },
-      {
-        test: /\.html$/,
-        use: [
-          {
-            loader: 'html-loader',
-          },
-        ],
-      },
-      {
-        test: /\.css$/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-        ],
-      },
-      {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[path][name]-[hash:8].[ext]',
-            },
-          },
-        ],
-      },
     ],
   },
-  devServer: {
-    historyApiFallback: true,
-  },
   plugins: [
-    new HtmlWebPackPlugin({
-      template: './src/index.html',
-      filename: './index.html',
+    new webpack.DefinePlugin({
+      __isBrowser__: 'true',
     }),
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
   },
 };
+
+const serverConfig = {
+  entry: './src/server/index.js',
+  target: 'node',
+  externals: [nodeExternals()],
+  output: {
+    path: __dirname,
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'server.js',
+    publicPath: '/',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        use: 'babel-loader',
+      },
+    ],
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      __isBrowser__: 'false',
+    }),
+  ],
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
+};
+
+module.exports = [browserConfig, serverConfig];

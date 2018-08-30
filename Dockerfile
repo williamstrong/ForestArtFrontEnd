@@ -1,10 +1,15 @@
-FROM node:10.2.1
+FROM node
 
 ARG NODE_ENV=production
 ENV NODE_ENV=$NODE_ENV
 
 RUN mkdir -p /code
 WORKDIR /code
-ADD . /code
-RUN yarn install --no-cache --frozen-lockfile --production;
-CMD [ "yarn", "build" ]
+COPY . /code
+
+RUN yarn install --production;
+RUN yarn webpack
+
+EXPOSE 3000
+
+CMD yarn run start
