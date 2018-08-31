@@ -2,6 +2,7 @@
     "presets": ["stage-3", "react", "flow"],
     "plugins": [
       "relay",
+      "transform-object-rest-spread",
       "transform-class-properties"
     ]
 }
