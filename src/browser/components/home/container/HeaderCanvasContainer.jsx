@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { css } from 'emotion';
 
-import HeaderCanvas from '../presentational/HeaderCanvas';
+import Picture from '../presentational/Picture';
 
+// TODO update all image tags to picture and include multiple sources.
+// const src = {
+//  srcLocation: 'https://s3-us-west-1.amazonaws.com/aforest-web/media/images/header/home',
+//  srcStandard: 'https://s3-us-west-1.amazonaws.com/aforest-web/media/images/header/home/home_page@1x.jpg',
+//  srcName: 'home_page',
+//  srcType: 'jpg',
+//  srcSizes: ['1x', '2x'],
+// };
 
-const src = {
-  srcLocation: 'https://s3-us-west-1.amazonaws.com/aforest-web/media/images/header/home',
-  srcStandard: 'https://s3-us-west-1.amazonaws.com/aforest-web/media/images/header/home/home_page@1x.jpg',
-  srcName: 'home_page',
-  srcType: 'jpg',
-  srcSizes: ['1x', '2x'],
-};
+const src = 'https://s3-us-west-1.amazonaws.com/aforest-web/media/images/header/home/home_page@1x.jpg';
 
 const styles = {
   container: css({
@@ -62,21 +64,6 @@ export default class HeaderCanvasContainer extends Component {
     const ctx = canvas.getContext('2d');
     const img = new Image();
     img.onload = () => {
-      // alert(img);
-
-      // TODO: Determine the sizing and resolution of the images that
-      // will be drawn over the canvas.
-      // The scale factors are going to change based on the picture and
-      // the resolution which it is saved at.
-      // It may be worth abstracting this function to allow for the
-      // scaling factor to be changed, or to make the
-      // images work with * 1 scale. One advantage may be retrieving
-      // different image sizes, however this can be
-      // done by requesting the screen size and determining the images
-      // based on that.
-
-      // Choose image scaling.
-
 
       const percentOfScreen = 0.65;
 
@@ -90,7 +77,7 @@ export default class HeaderCanvasContainer extends Component {
     };
 
     const { image } = this.state;
-    img.src = image.srcStandard;
+    img.src = image;
   }
 
   render() {
@@ -100,7 +87,7 @@ export default class HeaderCanvasContainer extends Component {
     return (
       <div className={styles.container}>
         <canvas height="3000" ref={this.canvasRef}>
-          <HeaderCanvas
+          <Picture
             id={id}
             src={image}
             alt="Abstract artwork by Alexandra Forest"

@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
@@ -47,26 +49,27 @@ const styles = {
   }),
 };
 
-const PreviewImage = ({ name, sourceStandard, description }) => (
+type Props = {
+  name: string,
+  sourceStandard: string,
+  description: string,
+  altText?: string,
+}
+
+const PreviewImage = (props: Props) => (
   <div className={styles.container}>
     <div className={styles.textContainer} id="textContainer">
       <p className={styles.text}>
-        {name}
+        {props.name}
       </p>
       <p className={styles.text}>
-        {description}
+        {props.description}
       </p>
     </div>
     <div className={styles.imageContainer} id="imageContainer">
-      <img src={getImageSource(sourceStandard)} alt={description} height="300" width="300" />
+      <img src={getImageSource(props.sourceStandard)} alt={props.altText} height="300" width="300" />
     </div>
   </div>
 );
-
-PreviewImage.propTypes = {
-  name: PropTypes.string.isRequired,
-  sourceStandard: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-};
 
 export default PreviewImage;
