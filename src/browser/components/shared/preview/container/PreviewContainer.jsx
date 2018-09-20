@@ -22,6 +22,8 @@ const styles = {
   link: css({
     color: 'black',
     textDecoration: 'none',
+
+    margin: '5% 0',
   }),
 };
 
