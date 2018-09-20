@@ -6,11 +6,10 @@ import HeaderCanvasContainer from './container/HeaderCanvasContainer';
 import NavBar from '../shared/nav/NavBar';
 import PreviewContainer from '../shared/preview/container/PreviewContainer';
 
-const headerStyle = css({
-  display: 'flex',
-  justifyContent: 'flex-end',
-  marginBottom: '10%',
-});
+const styles = {
+  container: css({
+  }),
+};
 
 const pages = [
   {
@@ -28,17 +27,10 @@ const pages = [
 ];
 
 const Home = () => (
-  <div>
-    <div className={headerStyle}>
-      <NavBar name="Alexandra Forest" pages={pages} />
-      <HeaderCanvasContainer />
-    </div>
-    <div>
-      <PreviewContainer />
-    </div>
-    <div>
-      <Footer />
-    </div>
+  <div className={styles.container}>
+    <NavBar name="Alexandra Forest" pages={pages} />
+    <PreviewContainer />
+    <Footer />
   </div>
 );
 

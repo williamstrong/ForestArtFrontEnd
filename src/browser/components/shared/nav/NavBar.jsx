@@ -25,21 +25,19 @@ const styles = {
     textAlign: 'center',
   }),
   divStyle: css({
-    position: 'absolute',
-    left: '5em',
-    zIndex: '100',
-    paddingTop: '30%',
-    display: 'inline-block',
   }),
   name: css({
-    font: 'bold 7em Relation',
-    marginBottom: '0',
-    marginTop: '0',
+    fontFamily: '"relation-two", "sans-serif"',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    fontSize: '3em',
+    margin: '5% auto',
+    textAlign: 'center',
   }),
   navText: css({
     color: 'black',
     textDecoration: 'none',
-    font: '2em "Europa-Light"',
+    font: '1em "Europa-Light"',
   }),
 };
 

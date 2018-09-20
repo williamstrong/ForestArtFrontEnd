@@ -9,34 +9,45 @@ const igLogo = 'https://s3-us-west-1.amazonaws.com/aforest-web/media/images/asse
 
 const styles = {
   footer: css({
-    marginTop: '10%',
+    marginTop: '5%',
+    paddingTop: '5%',
     width: '100%',
+    textAlign: 'center',
     background: 'grey',
   }),
-  flex: css({
-    display: 'flex',
-    flexFlow: 'row wrap',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    alignContent: 'center',
+  nameText: css({
+    fontFamily: '"relation-two", "sans-serif"',
+    fontWeight: 700,
+    fontSize: '2em',
+    margin: 0,
   }),
   text: css({
     margin: '15',
-    color: 'white',
+    color: 'black',
     font: '2em Europa-Light',
   }),
-  link: css({
-    margin: '15',
-    flexBasis: 'auto',
+  navText: css({
+    textDecoration: 'none',
+    color: 'black',
+
+    margin: '1em',
+
+    transition: 'all 0.3s linear',
+    ':hover': {
+      opacity: '0.8',
+      textShadow: '1px 1px #0000003B',
+    },
   }),
   instagram: css({
+    margin: '15px',
     height: '30px',
     width: '30px',
   }),
   copyright: css({
-
+    margin: 0,
   }),
 };
+
 const year = new Date().getFullYear();
 const copyrightText = `Copyright © ${year} Alexandra Forest`;
 
@@ -62,28 +73,26 @@ const pages = [
 ];
 
 const Footer = () => (
-  <div className={styles.footer}>
-    <div className={styles.flex}>
-      <p className={styles.text}>
-      A Forest Art
-      </p>
-      <nav>
-        {pages.map(page => (
-          <Nav
-            key={page.key}
-            name={page.name}
-            href={page.href}
-            className={page.style}
-          />))}
-      </nav>
-      <a href={igLink} className={styles.link}>
-        <img src={igLogo} alt={altText} className={styles.instagram} />
-      </a>
-    </div>
+  <footer className={styles.footer}>
+    <p className={styles.nameText}>
+       A Forest Art
+    </p>
+    <nav>
+      {pages.map(page => (
+        <Nav
+          key={page.key}
+          name={page.name}
+          href={page.href}
+          className={styles.navText}
+        />))}
+    </nav>
+    <a href={igLink}>
+      <img src={igLogo} alt={altText} className={styles.instagram} />
+    </a>
     <p className={styles.copyright}>
       {copyrightText}
     </p>
-  </div>
+  </footer>
 );
 
 export default Footer;

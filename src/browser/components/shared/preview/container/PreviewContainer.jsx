@@ -19,6 +19,12 @@ const styles = {
 
     textAlign: 'center',
   }),
+  link: css({
+    color: 'black',
+    textDecoration: 'none',
+
+    margin: '5% 0',
+  }),
 };
 
 type Props = {
@@ -71,27 +77,27 @@ export default class PreviewContainer extends Component<Props> {
           }
           const { images: { edges } } = props;
           return (
-            <div>
-              <div className={styles.previewContainer}>
-                {edges.map((imageData) => {
-                  const {
-                    id, category: imageCategory, name, description, sourceStandard,
-                  } = imageData.node;
-                  const { name: imageCategoryName } = imageCategory;
-                  return (
-                    <Link
-                      key={id}
-                      to={`/art/${imageCategoryName}/${name}`}
-                    >
-                      <PreviewImage
-                        name={name}
-                        sourceStandard={sourceStandard}
-                        description={description}
-                      />
-                    </Link>
-                  );
-                })}
-              </div>
+            <div className={styles.previewContainer}>
+              {edges.map((imageData) => {
+                const {
+                  id, category: imageCategory, name, description, altText, sourceStandard,
+                } = imageData.node;
+                const { name: imageCategoryName } = imageCategory;
+                return (
+                  <Link
+                    className={styles.link}
+                    key={id}
+                    to={`/art/${imageCategoryName}/${name}`}
+                  >
+                    <PreviewImage
+                      name={name}
+                      sourceStandard={sourceStandard}
+                      description={description}
+                      altText={altText}
+                    />
+                  </Link>
+                );
+              })}
             </div>
           );
         }}
