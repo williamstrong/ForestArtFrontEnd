@@ -22,6 +22,7 @@ export const name = 'About Me';
 export const href = '/aboutme';
 
 export const navPosition = css({
-  padding: '5em',
+  paddingBottom: '5em',
   display: 'inline-block',
+  width: '100%',
 });
