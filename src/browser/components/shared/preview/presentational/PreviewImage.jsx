@@ -53,12 +53,10 @@ const visibleText = css(
 );
 
 const imageDefaults = css({
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    height: '300',
-    width: '300',
+  maxWidth: '100%',
+  maxHeight: '100%',
 
-    transition: 'all 0.5 linear',
+  transition: 'all 0.5 linear',
 });
 
 const visibleImage = css(
