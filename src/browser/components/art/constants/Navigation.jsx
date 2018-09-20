@@ -47,6 +47,7 @@ export const categories = [
 ];
 
 export const navPosition = css({
-  padding: '5em',
   display: 'inline-block',
+  paddingBottom: '5em',
+  width: '100%',
 });

@@ -9,9 +9,6 @@ import CategoryBox from '../presentational/CategoryBox';
 
 const styles = {
   container: css({
-    display: 'flex',
-    flexFlow: 'row wrap',
-    justifyContent: 'center',
   }),
 };
 
