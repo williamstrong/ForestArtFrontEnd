@@ -32,7 +32,10 @@ const styles = {
     bottom: 0,
     left: 0,
     right: 0,
-    zIndex: 1,
+  }),
+  linkText: css({
+    textDecoration: 'none',
+    color: 'black',
   }),
 };
 
@@ -46,7 +49,7 @@ type Props = {
 
 const CategoryBox = (props: Props) => (
   <div className={styles.box}>
-    <Link to={`${props.url}/${props.category}`}>
+    <Link className={styles.linkText} to={`${props.url}/${props.category}`}>
       <picture>
         <img
           className={styles.image}
@@ -54,10 +57,10 @@ const CategoryBox = (props: Props) => (
           alt={props.altText}
         />
       </picture>
+      <p className={styles.text}>
+        {props.category}
+      </p>
     </Link>
-    <p className={styles.text}>
-      {props.category}
-    </p>
   </div>
 );
 
