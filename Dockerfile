@@ -7,7 +7,7 @@ RUN mkdir -p /code
 WORKDIR /code
 COPY . /code
 
-RUN npm install --production
+RUN npm install
 
 RUN npm install -g webpack webpack-cli
 RUN webpack -p
