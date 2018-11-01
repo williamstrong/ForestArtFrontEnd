@@ -34,10 +34,14 @@ interface PreviewContainerState {
 }
 
 export default class PreviewContainer extends React.Component<PreviewContainerProps, PreviewContainerState> {
+  static defaultProps = {
+    category: ''
+  };
+
   constructor(props: PreviewContainerProps) {
     super(props);
     this.state = { category: this.props.category};
-  }
+  };
 
   render() {
     const { category } = this.state;
