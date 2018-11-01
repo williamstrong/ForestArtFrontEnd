@@ -10,7 +10,7 @@ COPY . /code
 RUN npm install
 
 RUN npm install -g webpack webpack-cli
-RUN webpack -p
+RUN webpack -d
 
 EXPOSE 3000
 
