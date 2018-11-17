@@ -34,20 +34,26 @@ const browserConfig = {
 };
 
 const serverConfig = {
-  entry: './src/server/index.js',
-  target: 'node',
-  externals: [nodeExternals()],
+  entry: './src/server/index.tsx',
   output: {
-    path: __dirname,
     path: path.resolve(__dirname, 'dist'),
     filename: 'server.js',
     publicPath: '/',
   },
+  devtool: "source-map",
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".json"]
+  },
   module: {
     rules: [
       {
+        test: /\.(ts|tsx)$/,
+        loader: "babel-loader!awesome-typescript-loader",
+      },
+      {
+        enforce: "pre",
         test: /\.(js|jsx)$/,
-        use: 'babel-loader',
+        loader: "source-map-loader",
       },
     ],
   },
@@ -56,9 +62,7 @@ const serverConfig = {
       __isBrowser__: 'false',
     }),
   ],
-  resolve: {
-    extensions: ['.js', '.jsx'],
-  },
+  externals: [nodeExternals()],
 };
 
 module.exports = [browserConfig, serverConfig];
