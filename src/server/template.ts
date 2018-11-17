@@ -1,43 +1,18 @@
-import express from 'express';
-import cors from 'cors';
-import { renderToString } from 'react-dom/server';
-import React from 'react';
-
-import html from './html';
-
-const app = express();
-
-app.use(cors());
-
-app.use(express.static('dist'));
-
-const port = 3000;
-
-app.get('*', (req, res, next) => {
-  res.send(
-    `
+const Template = (body: string, title: string) => (`
       <!doctype html>
       <html class="no-js" lang="">
-
       <head>
         <meta charset="utf-8">
-
         <link rel="dns-prefetch" href="https://s3-us-west-1.amazonaws.com">
-
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
+        <title>${title}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
         <link rel="manifest" href="https://s3-us-west-1.amazonaws.com/aforest-web/assets/site.webmanifest">
         <link rel="apple-touch-icon" href="https://s3-us-west-1.amazonaws.com/aforest-web/assets/icon.png">
-
         <link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/aforest-web/assets/css/normalize.css">
         <link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/aforest-web/assets/css/main.css">
-
         <link rel="stylesheet" href="https://use.typekit.net/nhp1iyx.css">
-
-
         <link type="text/plain" rel="author" href="https://s3-us-west-1.amazonaws.com/aforest-web/assets/humans.txt" />
         <link rel="shortcut icon" href="https://s3-us-west-1.amazonaws.com/aforest-web/assets/favicon.ico">
         <link rel="icon" sizes="16x16 32x32 64x64" href="https://s3-us-west-1.amazonaws.com/aforest-web/assets/favicon.ico">
@@ -60,28 +35,21 @@ app.get('*', (req, res, next) => {
         <meta name="msapplication-TileImage" content="https://s3-us-west-1.amazonaws.com/aforest-web/assets/favicon-144.png">
         <meta name="msapplication-config" content="https://s3-us-west-1.amazonaws.com/aforest-web/assets/browserconfig.xml">
       </head>
-
       <body>
         <!--[if lte IE 9]>
           <p class="browserupgrade">
             You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.
           </p>
         <![endif]-->
-
-        <div id="root"></div>
-
-        <script src="bundle.js"></script>
-
+        <div id="root">
+          ${body}
+        </div>
+        <script src="/assets/bundle.js"></script>
         <script src="https://s3-us-west-1.amazonaws.com/aforest-web/assets/js/vendor/modernizr-3.6.0.min.js"></script>
         <script src="https://s3-us-west-1.amazonaws.com/aforest-web/assets/js/plugins.js"></script>
         <script src="https://s3-us-west-1.amazonaws.com/aforest-web/assets/js/main.js"></script>
       </body>
-
       </html>
-    `
-  );
-});
+`);
 
-app.listen(port, () => {
-  console.log(`Server is listening on port: ${port}`);
-});
+export default Template;
