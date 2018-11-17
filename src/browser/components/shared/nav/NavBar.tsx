@@ -69,7 +69,7 @@ export interface NavBarProps {
 
 const NavBar = (props: NavBarProps) => (
   <div className={props.positionStyle}>
-    <Name name={name} className={styles.name} />
+    <Name name={props.name} className={styles.name} />
     <nav className={styles.navStyle}>
       { createNavs(props.pages) }
     </nav>
