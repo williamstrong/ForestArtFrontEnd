@@ -1,6 +1,7 @@
 language: node_js
 node_js:
-  - 10
+  - 11
 
 script:
-  - yarn flow
+  - npm run relay
+  - npx webpack
