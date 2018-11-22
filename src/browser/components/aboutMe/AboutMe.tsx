@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import AboutMeNav from './nav/AboutMeNav';
-import ProfileContainer from './containers/ProfileContainer';
-import Footer from '../shared/footer/Footer';
+import Footer from "../shared/footer/Footer";
+import ProfileContainer from "./containers/ProfileContainer";
+import AboutMeNav from "./nav/AboutMeNav";
 
 const AboutMe = () => (
-  <div>
-    <AboutMeNav />
-    <ProfileContainer />
-    <Footer />
-  </div>
+    <div>
+        <AboutMeNav />
+        <ProfileContainer />
+        <Footer />
+    </div>
 );
 
 export default AboutMe;
