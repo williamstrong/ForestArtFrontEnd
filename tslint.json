@@ -1,0 +1,41 @@
+{
+    "defaultSeverity": "warning",
+    "extends": [
+        "tslint:latest",
+        "tslint-clean-code",
+        "tslint-react",
+        "tslint-config-prettier"
+    ],
+    "jsRules": {},
+    "rules": {
+      "interface-name": [
+        true,
+        {
+          "options": "never-prefix"
+        }
+      ],
+      "min-class-cohesion": true,
+      "newspaper-order": true,
+      "no-flag-args": true,
+      "no-feature-envy": true,
+      "no-map-without-usage": true,
+      "no-complex-conditionals": true,
+      "prefer-dry-conditionals": true,
+      "no-commented-out-code": true,
+      "jsx-alignment": true,
+      "jsx-curly-spacing": {
+        "options": "always"
+      },
+      "jsx-equals-spacing": {
+        "options": "always"
+      },
+      "jsx-key": true,
+      "jsx-no-bind": true,
+      "jsx-no-multiline-js": true,
+      "jsx-no-string-ref": true,
+      "jsx-self-close": true,
+      "jsx-space-before-trailing-slash": true,
+      "jsx-wrap-multiline": true
+    },
+    "rulesDirectory": []
+}
