@@ -29,22 +29,13 @@ interface PreviewContainerProps {
   category?: string;
 }
 
-interface PreviewContainerState {
-  category: string;
-}
-
-export default class PreviewContainer extends React.Component<PreviewContainerProps, PreviewContainerState> {
+export default class PreviewContainer extends React.Component<PreviewContainerProps> {
   static defaultProps = {
     category: ''
   };
 
-  constructor(props: PreviewContainerProps) {
-    super(props);
-    this.state = { category: this.props.category};
-  };
-
   render() {
-    const { category } = this.state;
+    const { category } = this.props;
     return (
       <QueryRenderer
         environment={environment}
