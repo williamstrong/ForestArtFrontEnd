@@ -1,5 +1,5 @@
-import { css } from "emotion";
 import React from "react";
+import { css } from "emotion";
 import { graphql, QueryRenderer } from "react-relay";
 import { Link } from "react-router-dom";
 
@@ -29,25 +29,15 @@ interface PreviewContainerProps {
     category?: string;
 }
 
-interface PreviewContainerState {
-    category: string;
-}
-
 export default class PreviewContainer extends React.Component<
-    PreviewContainerProps,
-    PreviewContainerState
+    PreviewContainerProps
 > {
-    public static defaultProps = {
+    static defaultProps = {
         category: ""
     };
 
-    constructor(props: PreviewContainerProps) {
-        super(props);
-        this.state = { category: this.props.category };
-    }
-
-    public render() {
-        const { category } = this.state;
+    render() {
+        const { category } = this.props;
         return (
             <QueryRenderer
                 environment={environment}
