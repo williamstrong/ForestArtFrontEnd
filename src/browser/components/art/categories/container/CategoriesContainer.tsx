@@ -1,9 +1,8 @@
 import { css } from "emotion";
 import React, { Component } from "react";
-import { graphql, QueryRenderer } from "react-relay";
+import { Query } from "react-apollo";
+import gql from "graphql-tag";
 import { RouteComponentProps } from "react-router-dom";
-
-import environment from "../../../../util/RelayEnvironment";
 
 import CategoryBox from "../presentational/CategoryBox";
 
@@ -21,9 +20,8 @@ export default class CategoiesContainer extends Component<
             match: { url }
         } = this.props;
         return (
-            <QueryRenderer
-                environment={environment}
-                query={graphql`
+            <Query
+                query={gql`
                     query CategoriesContainerQuery {
                         categories {
                             edges {
@@ -41,16 +39,17 @@ export default class CategoiesContainer extends Component<
                     }
                 `}
                 variables={{}}
-                render={({ error, props }) => {
+            >
+                {({ loading, error, data }) => {
                     if (error) {
                         return <div>Error!</div>;
                     }
-                    if (!props) {
+                    if (loading) {
                         return <div>Loading...</div>;
                     }
                     const {
                         categories: { edges }
-                    } = props;
+                    } = data;
                     return (
                         <div className={styles.container}>
                             {edges.map((edge: any) => {
@@ -70,7 +69,7 @@ export default class CategoiesContainer extends Component<
                         </div>
                     );
                 }}
-            />
+            </Query>
         );
     }
 }

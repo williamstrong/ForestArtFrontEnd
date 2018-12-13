@@ -1,9 +1,8 @@
 import React from "react";
 import { css } from "emotion";
-import { graphql, QueryRenderer } from "react-relay";
+import { Query } from "react-apollo";
+import gql from "graphql-tag";
 import { Link } from "react-router-dom";
-
-import environment from "../../../../util/RelayEnvironment";
 
 import PreviewImage from "../presentational/PreviewImage";
 
@@ -39,9 +38,8 @@ export default class PreviewContainer extends React.Component<
     render() {
         const { category } = this.props;
         return (
-            <QueryRenderer
-                environment={environment}
-                query={graphql`
+            <Query
+                query={gql`
                     query PreviewContainerQuery($category: String!) {
                         images(first: 10, category_Name: $category) {
                             edges {
@@ -60,16 +58,17 @@ export default class PreviewContainer extends React.Component<
                     }
                 `}
                 variables={{ category }}
-                render={({ error, props }) => {
+            >
+                {({ loading, error, data }) => {
                     if (error) {
                         return <div>Error!</div>;
                     }
-                    if (!props) {
+                    if (loading) {
                         return <div>Loading...</div>;
                     }
                     const {
                         images: { edges }
-                    } = props;
+                    } = data;
                     return (
                         <div className={styles.previewContainer}>
                             {edges.map((imageData: any) => {
@@ -102,7 +101,7 @@ export default class PreviewContainer extends React.Component<
                         </div>
                     );
                 }}
-            />
+            </Query>
         );
     }
 }

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { graphql, QueryRenderer } from "react-relay";
-
-import environment from "../../../../util/RelayEnvironment";
+import { Query } from "react-apollo";
+import gql from "graphql-tag";
 
 import Piece from "../presentational/Piece";
 
@@ -14,9 +13,8 @@ export default class PieceContainer extends Component<PieceContainerProps> {
     public render() {
         const { category, piece } = this.props;
         return (
-            <QueryRenderer
-                environment={environment}
-                query={graphql`
+            <Query
+                query={gql`
                     query PieceContainerQuery(
                         $category: String!
                         $piece: String!
@@ -33,16 +31,17 @@ export default class PieceContainer extends Component<PieceContainerProps> {
                     }
                 `}
                 variables={{ category, piece }}
-                render={({ error, props }) => {
+            >
+                {({ loading, error, data }) => {
                     if (error) {
                         return <div>Error!</div>;
                     }
-                    if (!props) {
+                    if (loading) {
                         return <div>Loading...</div>;
                     }
                     const {
                         images: { edges }
-                    } = props;
+                    } = data;
                     const { node: image } = edges[0];
                     return (
                         <Piece
@@ -52,7 +51,7 @@ export default class PieceContainer extends Component<PieceContainerProps> {
                         />
                     );
                 }}
-            />
+            </Query>
         );
     }
 }
