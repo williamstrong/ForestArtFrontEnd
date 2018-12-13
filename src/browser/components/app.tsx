@@ -9,7 +9,7 @@ import Routes from "./routes";
 
 const App = () => (
     <ApolloProvider client={client}>
-        <Routes />;
+        <Routes />
     </ApolloProvider>
 );
 

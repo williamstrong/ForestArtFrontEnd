@@ -73,7 +73,6 @@ server.get("/*", (req, res) => {
 
         res.status(200);
         res.send(`<!doctype html>\n${ReactDOM.renderToStaticMarkup(html)}`);
-        console.log(`<!doctype html>\n${ReactDOM.renderToStaticMarkup(html)}`);
     });
 });
 
