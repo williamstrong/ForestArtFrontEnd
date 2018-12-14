@@ -14,7 +14,7 @@ export interface ImageTextProps {
 
 const ImageText = (props: ImageTextProps) => (
     <div className={props.className}>
-        <p className={styles.name}>{props.name}</p>
+        <h1 className={styles.name}>{props.name}</h1>
         <p className={styles.description}>{props.description}</p>
     </div>
 );

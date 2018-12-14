@@ -46,6 +46,7 @@ export default class PreviewContainer extends React.Component<
                                 node {
                                     id
                                     name
+                                    title
                                     category {
                                         name
                                     }
@@ -76,6 +77,7 @@ export default class PreviewContainer extends React.Component<
                                     id,
                                     category: imageCategory,
                                     name,
+                                    title,
                                     description,
                                     altText,
                                     sourceStandard
@@ -90,7 +92,7 @@ export default class PreviewContainer extends React.Component<
                                         to={`/art/${imageCategoryName}/${name}`}
                                     >
                                         <PreviewImage
-                                            name={name}
+                                            name={title}
                                             sourceStandard={sourceStandard}
                                             description={description}
                                             altText={altText}
