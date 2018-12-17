@@ -8,10 +8,10 @@ import CategoiesContainer from "./container/CategoriesContainer";
 export interface CategoriesProps extends RouteComponentProps {}
 
 const Categories = (props: CategoriesProps) => (
-    <div>
+    <React.Fragment>
         <ArtNav />
         <CategoiesContainer {...props} />
-    </div>
+    </React.Fragment>
 );
 
 export default Categories;
