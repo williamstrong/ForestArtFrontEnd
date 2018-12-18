@@ -1,4 +1,5 @@
-import { css } from "emotion";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -17,8 +18,8 @@ export interface TitleProps {
 }
 
 const Title = (props: TitleProps) => (
-    <div className={style.container}>
-        <p className={style.title}>{name}</p>
+    <div css={style.container}>
+        <p css={style.title}>{name}</p>
     </div>
 );
 

@@ -1,4 +1,5 @@
-import { css } from "emotion";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import React, { Component } from "react";
 
 import Picture from "../presentational/Picture";
@@ -95,7 +96,7 @@ export default class HeaderCanvasContainer extends Component<
         const { id } = this.state;
 
         return (
-            <div className={styles.container}>
+            <div css={styles.container}>
                 <canvas height="3000" ref={this.canvasRef}>
                     <Picture
                         id={id}

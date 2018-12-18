@@ -1,4 +1,5 @@
-import { css } from "emotion";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import React from "react";
 
 const styles = {
@@ -12,10 +13,12 @@ export interface ImageTextProps {
     className?: string;
 }
 
+// {props.description}</p>
 const ImageText = (props: ImageTextProps) => (
-    <div className={props.className}>
-        <h1 className={styles.name}>{props.name}</h1>
-        <p className={styles.description}>{props.description}</p>
+    <div css={props.className}>
+        <h1 css={styles.name}>{props.name}</h1>
+        <p css={styles.description}>5 x 7</p>
+        <p css={styles.description}>Water Color and Pen</p>
     </div>
 );
 

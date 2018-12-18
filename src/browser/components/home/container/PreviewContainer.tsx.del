@@ -1,5 +1,6 @@
+/** @jsx jsx */
 import React, { Component } from 'react';
-import { css } from 'emotion';
+import { css, jsx } from 'emotion';
 
 import ImageBox from '../presentational/ImageBox';
 import Title from '../presentational/Title';

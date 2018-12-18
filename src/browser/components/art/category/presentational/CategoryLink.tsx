@@ -1,4 +1,5 @@
-import { css } from "emotion";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -21,7 +22,7 @@ export interface CategoryLinkProps {
 }
 
 const CategoryLink = (props: CategoryLinkProps) => (
-    <Nav name={props.name} href={props.href} className={styles.link} />
+    <Nav name={props.name} href={props.href} css={styles.link} />
 );
 
 export default CategoryLink;

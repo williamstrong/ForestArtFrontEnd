@@ -1,4 +1,5 @@
-import { css } from "emotion";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 
@@ -36,7 +37,7 @@ export default class Category extends Component<CategoryProp> {
         } = this.props;
         return (
             <div>
-                <Header styles={styles.headerImage} />
+                <Header css={styles.headerImage} />
                 <ArtNav />
                 <CategoryNavigationContainer />
                 <PreviewContainer category={category} />

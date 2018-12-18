@@ -1,4 +1,5 @@
-import { css } from "emotion";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import React from "react";
 
 import ImageText from "./ImageText";
@@ -49,8 +50,8 @@ const visibleText = css(
 );
 
 const imageDefaults = css({
-    maxWidth: "100%",
-    maxHeight: "100%",
+    width: "100%",
+    height: "auto",
 
     transition: "all 0.5s linear"
 });
@@ -75,6 +76,10 @@ const styles = {
         ".image": visibleImage,
 
         position: "relative",
+        width: "30vw",
+
+        top: "50%",
+        transform: "translate(0, -50%)",
 
         ":hover,:focus": {
             ".text": visibleText,
@@ -91,14 +96,14 @@ export interface PreviewImageProps {
 }
 
 const PreviewImage = (props: PreviewImageProps) => (
-    <div className={styles.container}>
+    <div css={styles.container}>
         <ImageText
-            className="text"
+            css="text"
             name={props.name}
             description={props.description}
         />
         <img
-            className="image"
+            css="image"
             src={getImageSource(props.sourceStandard)}
             alt={props.altText}
         />

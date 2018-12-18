@@ -1,4 +1,5 @@
-import { css } from "emotion";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import React from "react";
 
 import Footer from "../shared/footer/Footer";
@@ -26,7 +27,7 @@ const pages = [
 ];
 
 const Home = () => (
-    <div className={styles.container}>
+    <div css={styles.container}>
         <NavBar name="Alexandra Forest" pages={pages} />
         <PreviewContainer />
         <Footer />

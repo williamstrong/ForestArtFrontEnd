@@ -1,4 +1,5 @@
-import { css } from "emotion";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -34,8 +35,8 @@ export interface PieceProps {
 }
 
 const Piece = (props: PieceProps) => (
-    <div className={styles.container}>
-        <div className={styles.imageContainer}>
+    <div css={styles.container}>
+        <div css={styles.imageContainer}>
             <picture>
                 <img
                     height="600"
@@ -45,9 +46,9 @@ const Piece = (props: PieceProps) => (
                 />
             </picture>
         </div>
-        <div className={styles.textContainer}>
-            <p className={styles.title}>{name}</p>
-            <p className={styles.description}>{props.description}</p>
+        <div css={styles.textContainer}>
+            <p css={styles.title}>{name}</p>
+            <p css={styles.description}>{props.description}</p>
         </div>
     </div>
 );

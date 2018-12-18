@@ -1,4 +1,5 @@
-import { css } from "emotion";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -45,16 +46,16 @@ export interface CategoryBoxProps {
 }
 
 const CategoryBox = (props: CategoryBoxProps) => (
-    <div className={styles.box}>
-        <Link className={styles.linkText} to={`${props.url}/${props.category}`}>
+    <div css={styles.box}>
+        <Link css={styles.linkText} to={`${props.url}/${props.category}`}>
             <picture>
                 <img
-                    className={styles.image}
+                    css={styles.image}
                     src={getImageSource(props.image)}
                     alt={props.altText}
                 />
             </picture>
-            <p className={styles.text}>{props.category}</p>
+            <p css={styles.text}>{props.category}</p>
         </Link>
     </div>
 );
