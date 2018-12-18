@@ -3,7 +3,7 @@ import { css, jsx } from "@emotion/core";
 import PropTypes from "prop-types";
 import React from "react";
 
-import Nav from "../../../shared/nav/Nav";
+import { Link } from "react-router-dom";
 
 const styles = {
     link: css({
@@ -22,7 +22,9 @@ export interface CategoryLinkProps {
 }
 
 const CategoryLink = (props: CategoryLinkProps) => (
-    <Nav name={props.name} href={props.href} css={styles.link} />
+    <Link to={props.href} css={styles.link}>
+        {props.name}
+    </Link>
 );
 
 export default CategoryLink;

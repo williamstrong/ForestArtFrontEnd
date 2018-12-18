@@ -2,7 +2,8 @@
 import { css, jsx } from "@emotion/core";
 import React from "react";
 
-import Nav from "../nav/Nav";
+import { Link } from "react-router-dom";
+// import Nav from "../nav/Nav";
 
 const altText = "Alexandra Forest's instagram page.";
 const igLink = "http://www.instagram.com/aforestart";
@@ -76,15 +77,12 @@ const pages = [
 
 const Footer = () => (
     <footer css={styles.footer}>
-        ><p css={styles.nameText}>A Forest Art</p>
+        <p css={styles.nameText}>A Forest Art</p>
         <nav>
             {pages.map(page => (
-                <Nav
-                    key={page.key}
-                    name={page.name}
-                    href={page.href}
-                    css={styles.navText}
-                />
+                <Link key={page.key} to={page.href} css={styles.navText}>
+                    {page.name}
+                </Link>
             ))}
         </nav>
         <a href={igLink}>
