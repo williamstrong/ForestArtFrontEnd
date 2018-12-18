@@ -1,10 +1,12 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import PropTypes from "prop-types";
+import styled from "@emotion/styled";
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 import Name from "../name/Name";
-import Nav from "./Nav";
+// import Nav from "./Nav";
 
 const textPositions = [
     css({
@@ -47,12 +49,9 @@ const createNavs = (pages: Page[]) => {
         return e;
     });
     return pagesWithStyle.map(page => (
-        <Nav
-            key={page.name}
-            name={page.name}
-            href={page.href}
-            css={page.style}
-        />
+        <Link key={page.name} to={page.href} css={page.style}>
+            {page.name}
+        </Link>
     ));
 };
 
