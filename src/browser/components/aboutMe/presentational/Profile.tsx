@@ -1,4 +1,5 @@
-import { css } from "emotion";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import React from "react";
 
 const styles = {
@@ -24,9 +25,9 @@ export interface ProfileProps {
 const Profile = (props: ProfileProps) => {
     const { description, imageSrc, imageAlt } = props;
     return (
-        <div className={styles.container}>
-            <img className={styles.image} src={imageSrc} alt={imageAlt} />
-            <p className={styles.text}>{description}</p>
+        <div css={styles.container}>
+            <img css={styles.image} src={imageSrc} alt={imageAlt} />
+            <p css={styles.text}>{description}</p>
         </div>
     );
 };

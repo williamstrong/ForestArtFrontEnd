@@ -1,4 +1,5 @@
-import { css } from "emotion";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import React from "react";
 
 import Nav from "../nav/Nav";
@@ -74,22 +75,22 @@ const pages = [
 ];
 
 const Footer = () => (
-    <footer className={styles.footer}>
-        <p className={styles.nameText}>A Forest Art</p>
+    <footer css={styles.footer}>
+        ><p css={styles.nameText}>A Forest Art</p>
         <nav>
             {pages.map(page => (
                 <Nav
                     key={page.key}
                     name={page.name}
                     href={page.href}
-                    className={styles.navText}
+                    css={styles.navText}
                 />
             ))}
         </nav>
         <a href={igLink}>
-            <img src={igLogo} alt={altText} className={styles.instagram} />
+            <img src={igLogo} alt={altText} css={styles.instagram} />
         </a>
-        <p className={styles.copyright}>{copyrightText}</p>
+        <p css={styles.copyright}>{copyrightText}</p>
     </footer>
 );
 

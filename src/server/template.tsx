@@ -7,9 +7,18 @@ export interface HtmlProps {
 }
 
 const Html = (props: HtmlProps) => (
-    <html className="no-js" lang="">
+    <html css="no-js" lang="">
         <head>
             <meta charSet="utf-8" />
+            <link
+                rel="stylesheet"
+                href="https://s3-us-west-1.amazonaws.com/aforest-web/assets/css/main.css"
+            />
+            <link
+                rel="stylesheet"
+                href="https://s3-us-west-1.amazonaws.com/aforest-web/assets/css/normalize.css"
+            />
+            <link rel="stylesheet" href="https://use.typekit.net/nhp1iyx.css" />
             <link
                 rel="dns-prefetch"
                 href="https://s3-us-west-1.amazonaws.com"
@@ -29,15 +38,6 @@ const Html = (props: HtmlProps) => (
                 rel="apple-touch-icon"
                 href="https://s3-us-west-1.amazonaws.com/aforest-web/assets/icon.png"
             />
-            <link
-                rel="stylesheet"
-                href="https://s3-us-west-1.amazonaws.com/aforest-web/assets/css/normalize.css"
-            />
-            <link
-                rel="stylesheet"
-                href="https://s3-us-west-1.amazonaws.com/aforest-web/assets/css/main.css"
-            />
-            <link rel="stylesheet" href="https://use.typekit.net/nhp1iyx.css" />
             <link
                 type="text/plain"
                 rel="author"

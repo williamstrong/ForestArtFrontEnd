@@ -1,4 +1,5 @@
-import { css, cx } from "emotion";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import React, { Component } from "react";
 
 import CategoryLink from "../presentational/CategoryLink";
@@ -45,7 +46,7 @@ export default class CategoryNavigation extends Component<
     public render() {
         const { styleBase, stylePosition } = this.props;
         return (
-            <div className={cx(styleBase, stylePosition)}>
+            <div css={[styleBase, stylePosition]}>
                 {categories.map(category => (
                     <CategoryLink
                         key={category.key}

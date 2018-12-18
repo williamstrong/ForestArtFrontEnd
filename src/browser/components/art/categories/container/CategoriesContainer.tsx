@@ -1,4 +1,5 @@
-import { css } from "emotion";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
@@ -51,7 +52,7 @@ export default class CategoiesContainer extends Component<
                         categories: { edges }
                     } = data;
                     return (
-                        <div className={styles.container}>
+                        <div css={styles.container}>
                             {edges.map((edge: any) => {
                                 const { node: category } = edge;
                                 const { image } = category;

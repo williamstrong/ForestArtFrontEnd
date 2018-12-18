@@ -8,7 +8,7 @@ export interface PictureProps {
 
 const Picture = (props: PictureProps) => (
     <picture>
-        <img className="hidden" id={props.id} alt={props.alt} src={props.src} />
+        <img css="hidden" id={props.id} alt={props.alt} src={props.src} />
     </picture>
 );
 

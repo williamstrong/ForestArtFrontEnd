@@ -1,4 +1,5 @@
-import { css } from "emotion";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import React, { Component } from "react";
 
 import CategoryNavigation from "../category/container/CategoryNavigationContainer";
@@ -35,9 +36,7 @@ export default class Piece extends Component<PieceProps> {
         return (
             <div>
                 <ArtNav />
-                <CategoryNavigation
-                    stylePosition={styles.categoryNavPosition}
-                />
+                <CategoryNavigation css={styles.categoryNavPosition} />
                 <PieceContainer category={category} piece={piece} />
             </div>
         );

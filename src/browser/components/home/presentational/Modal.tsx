@@ -1,4 +1,5 @@
-import { css } from "emotion";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -40,10 +41,10 @@ export interface ModalProps {
 }
 
 const Modal = (props: ModalProps) => (
-    <div className={style.modalScreen}>
-        <div className={style.modalWindow}>
+    <div css={style.modalScreen}>
+        <div css={style.modalWindow}>
             <button
-                className={style.closeButton}
+                css={style.closeButton}
                 type="button"
                 onClick={props.closeModal}
             >
@@ -52,7 +53,7 @@ const Modal = (props: ModalProps) => (
             <h3>{name}</h3>
             <p hidden={true}>{props.id}</p>
             <img
-                className={style.content}
+                css={style.content}
                 width="300"
                 height="300"
                 src={props.src}

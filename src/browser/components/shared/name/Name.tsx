@@ -1,13 +1,10 @@
-import PropTypes from "prop-types";
 import React from "react";
 
 export interface NameProps {
     name: string;
-    className: string;
+    css: any;
 }
 
-const Name = (props: NameProps) => (
-    <p className={props.className}>{props.name}</p>
-);
+const Name = (props: NameProps) => <p css={props.css}>{props.name}</p>;
 
 export default Name;

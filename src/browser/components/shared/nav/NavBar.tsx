@@ -1,4 +1,5 @@
-import { css, cx } from "emotion";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -42,7 +43,7 @@ const styles = {
 
 const createNavs = (pages: Page[]) => {
     const pagesWithStyle = pages.map((e: Page, i: number) => {
-        e.style = cx(textPositions[i], styles.navText);
+        e.style = [textPositions[i], styles.navText];
         return e;
     });
     return pagesWithStyle.map(page => (
@@ -50,7 +51,7 @@ const createNavs = (pages: Page[]) => {
             key={page.name}
             name={page.name}
             href={page.href}
-            className={page.style}
+            css={page.style}
         />
     ));
 };
@@ -58,7 +59,7 @@ const createNavs = (pages: Page[]) => {
 interface Page {
     name: string;
     href: string;
-    style?: string;
+    style?: any;
 }
 
 export interface NavBarProps {
@@ -68,9 +69,9 @@ export interface NavBarProps {
 }
 
 const NavBar = (props: NavBarProps) => (
-    <div className={props.positionStyle}>
-        <Name name={props.name} className={styles.name} />
-        <nav className={styles.navStyle}>{createNavs(props.pages)}</nav>
+    <div css={props.positionStyle}>
+        <p css={styles.name}>{props.name}</p>
+        <nav css={styles.navStyle}>{createNavs(props.pages)}</nav>
     </div>
 );
 

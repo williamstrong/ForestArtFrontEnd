@@ -1,10 +1,9 @@
-import PropTypes from "prop-types";
 import React from "react";
 
 export interface HeaderProps {
-    styles: string;
+    css: any;
 }
 
-const Header = (props: HeaderProps) => <div className={props.styles} />;
+const Header = (props: HeaderProps) => <div css={props.css} />;
 
 export default Header;

@@ -4,8 +4,6 @@ import NavBar from "../../shared/nav/NavBar";
 
 import { name, navPosition, pages } from "../constants/Navigation";
 
-const AboutMeNav = () => (
-    <NavBar positionStyle={navPosition} pages={pages} name={name} />
-);
+const AboutMeNav = () => <NavBar css={navPosition} pages={pages} name={name} />;
 
 export default AboutMeNav;

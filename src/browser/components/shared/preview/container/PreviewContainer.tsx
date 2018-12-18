@@ -1,5 +1,6 @@
+/** @jsx jsx */
 import React from "react";
-import { css } from "emotion";
+import { css, jsx } from "@emotion/core";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { Link } from "react-router-dom";
@@ -9,7 +10,7 @@ import PreviewImage from "../presentational/PreviewImage";
 const styles = {
     previewContainer: css({
         display: "flex",
-        flexFlow: "column nowrap",
+        flexFlow: "row wrap",
         justifyContent: "center",
 
         margin: "10%",
@@ -20,7 +21,7 @@ const styles = {
         color: "black",
         textDecoration: "none",
 
-        margin: "5% 0"
+        margin: "5vh 5vw"
     })
 };
 
@@ -71,7 +72,7 @@ export default class PreviewContainer extends React.Component<
                         images: { edges }
                     } = data;
                     return (
-                        <div className={styles.previewContainer}>
+                        <div css={styles.previewContainer}>
                             {edges.map((imageData: any) => {
                                 const {
                                     id,
@@ -87,7 +88,7 @@ export default class PreviewContainer extends React.Component<
                                 } = imageCategory;
                                 return (
                                     <Link
-                                        className={styles.link}
+                                        css={styles.link}
                                         key={id}
                                         to={`/art/${imageCategoryName}/${name}`}
                                     >

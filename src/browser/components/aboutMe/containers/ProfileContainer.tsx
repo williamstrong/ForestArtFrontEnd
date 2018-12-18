@@ -1,4 +1,5 @@
-import { css } from "emotion";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import React, { Component } from "react";
 
 import Profile from "../presentational/Profile";
