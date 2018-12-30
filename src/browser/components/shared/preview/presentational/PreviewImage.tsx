@@ -1,14 +1,13 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
+import styled from "@emotion/styled";
 import React from "react";
 
-import ImageText from "./ImageText";
+import imageSource from "../../../../util/Source";
 
-import getImageSource from "../../../../util/Source";
+// Styled components
 
-// Styles
-
-const textDefaults = css({
+const TextContainer = styled.div({
     display: "flex",
     flexFlow: "column nowrap",
     justifyContent: "center",
@@ -25,68 +24,37 @@ const textDefaults = css({
     left: 0,
     right: 0,
 
-    // background: '#e3e1dc99',
+    transition: "all 1s linear",
 
-    transition: "all 1s linear"
+    visibility: "hidden",
+    opacity: 0,
+    transform: "translateY(1em)"
 });
 
-const invisibleText = css(
-    {
-        visibility: "hidden",
-        opacity: 0,
-        transition: "1s",
-        transform: "translateY(1em)"
-    },
-    textDefaults
-);
+const ImageContainer = styled.img({
+    width: "100%",
+    height: "auto",
+    transition: "all 0.5s linear",
+    opacity: 1
+});
 
-const visibleText = css(
-    {
+const Container = styled.div({
+    position: "relative",
+    width: "30vw",
+
+    top: "50%",
+    transform: "translate(0, -50%)",
+
+    [`:hover ${TextContainer}`]: {
         visibility: "visible",
         opacity: 1,
         transform: "translateY(0em)"
     },
-    textDefaults
-);
 
-const imageDefaults = css({
-    width: "100%",
-    height: "auto",
-
-    transition: "all 0.5s linear"
-});
-
-const visibleImage = css(
-    {
-        opacity: 1
-    },
-    imageDefaults
-);
-
-const invisibleImage = css(
-    {
+    [`:hover ${ImageContainer}`]: {
         opacity: 0.2
-    },
-    imageDefaults
-);
-
-const styles = {
-    container: css({
-        ".text": invisibleText,
-        ".image": visibleImage,
-
-        position: "relative",
-        width: "30vw",
-
-        top: "50%",
-        transform: "translate(0, -50%)",
-
-        ":hover,:focus": {
-            ".text": visibleText,
-            ".image": invisibleImage
-        }
-    })
-};
+    }
+});
 
 export interface PreviewImageProps {
     name: string;
@@ -96,18 +64,16 @@ export interface PreviewImageProps {
 }
 
 const PreviewImage = (props: PreviewImageProps) => (
-    <div css={styles.container}>
-        <ImageText
-            css="text"
-            name={props.name}
-            description={props.description}
-        />
-        <img
-            css="image"
-            src={getImageSource(props.sourceStandard)}
+    <Container>
+        <TextContainer>
+            <h1>{props.name}</h1>
+            <p>{props.description}</p>
+        </TextContainer>
+        <ImageContainer
+            src={imageSource(props.sourceStandard)}
             alt={props.altText}
         />
-    </div>
+    </Container>
 );
 
 export default PreviewImage;
