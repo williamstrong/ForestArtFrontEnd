@@ -50,7 +50,7 @@
         "babel-loader": "^8.0.0",
         "babel-plugin-emotion": "^10.0.5",
         "cors": "^2.8.5",
-        "csstype": "^2.5.8",
+        "csstype": "^2.6.0",
         "enzyme": "^3.8.0",
         "enzyme-adapter-react-16": "^1.7.1",
         "event-stream": "^4.0.1",
@@ -73,7 +73,7 @@
         "source-map-loader": "^0.2.4",
         "style-loader": "^0.23.1",
         "typescript": "^3.2.2",
-        "webpack": "^4.28.2",
+        "webpack": "^4.28.3",
         "webpack-cli": "^3.1.0",
         "webpack-node-externals": "^1.7.2"
     },
