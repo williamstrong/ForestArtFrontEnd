@@ -35,7 +35,9 @@ const ImageContainer = styled.img({
     width: "100%",
     height: "auto",
     transition: "all 0.5s linear",
-    opacity: 1
+    opacity: 1,
+    borderRadius: "5px",
+    boxShadow: "10px 10px 6px 2px #ccc"
 });
 
 const Container = styled.div({
@@ -52,9 +54,21 @@ const Container = styled.div({
     },
 
     [`:hover ${ImageContainer}`]: {
-        opacity: 0.2
+        opacity: 0.3,
+        boxShadow: "1px 1px 6px 5px #ccc"
     }
 });
+
+// Styles
+
+const styles = {
+    header: css({
+        fontSize: "4em"
+    }),
+    paragraph: css({
+        fontSize: "2em"
+    })
+};
 
 export interface PreviewImageProps {
     name: string;
@@ -66,8 +80,9 @@ export interface PreviewImageProps {
 const PreviewImage = (props: PreviewImageProps) => (
     <Container>
         <TextContainer>
-            <h1>{props.name}</h1>
-            <p>{props.description}</p>
+            <h1 css={styles.header}>{props.name}</h1>
+            <p css={styles.paragraph}>5" x 7"</p>
+            <p css={styles.paragraph}>watercolor | solid press paper</p>
         </TextContainer>
         <ImageContainer
             src={imageSource(props.sourceStandard)}

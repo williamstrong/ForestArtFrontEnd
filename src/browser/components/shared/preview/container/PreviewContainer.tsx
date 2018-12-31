@@ -13,8 +13,6 @@ const styles = {
         flexFlow: "row wrap",
         justifyContent: "center",
 
-        margin: "10%",
-
         textAlign: "center"
     }),
     link: css({

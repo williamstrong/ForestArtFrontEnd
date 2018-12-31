@@ -6,7 +6,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Name from "../name/Name";
-// import Nav from "./Nav";
 
 const textPositions = [
     css({
@@ -25,16 +24,17 @@ const textPositions = [
 
 const styles = {
     navStyle: css({
-        textAlign: "center"
+        textAlign: "center",
+        marginTop: "10%",
+        marginBottom: "5%"
     }),
-    divStyle: css({}),
     name: css({
         fontFamily: '"relation-two", "sans-serif"',
         fontStyle: "normal",
         fontWeight: 700,
         fontSize: "3em",
-        margin: "5% auto",
-        textAlign: "center"
+        paddingBottom: ".1em",
+        margin: 0
     }),
     navText: css({
         color: "black",
@@ -64,18 +64,13 @@ interface Page {
 export interface NavBarProps {
     name: string;
     pages: Page[];
-    positionStyle?: string;
 }
 
 const NavBar = (props: NavBarProps) => (
-    <div css={props.positionStyle}>
+    <nav css={styles.navStyle}>
         <p css={styles.name}>{props.name}</p>
-        <nav css={styles.navStyle}>{createNavs(props.pages)}</nav>
-    </div>
+        {createNavs(props.pages)}
+    </nav>
 );
-
-NavBar.defaultProps = {
-    positionStyle: styles.divStyle
-};
 
 export default NavBar;
