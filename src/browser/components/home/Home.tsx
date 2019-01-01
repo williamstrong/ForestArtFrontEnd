@@ -6,10 +6,7 @@ import Footer from "../shared/footer/Footer";
 import NavBar from "../shared/nav/NavBar";
 import PreviewContainer from "../shared/preview/container/PreviewContainer";
 import HeaderCanvasContainer from "./container/HeaderCanvasContainer";
-
-const styles = {
-    container: css({})
-};
+import HorizontalRule from "../shared/HorizontalRule";
 
 const pages = [
     {
@@ -27,11 +24,14 @@ const pages = [
 ];
 
 const Home = () => (
-    <div css={styles.container}>
+    <React.Fragment>
+        <HorizontalRule />
         <NavBar name="Alexandra Forest" pages={pages} />
+        <HorizontalRule />
         <PreviewContainer />
+        <HorizontalRule />
         <Footer />
-    </div>
+    </React.Fragment>
 );
 
 export default Home;
