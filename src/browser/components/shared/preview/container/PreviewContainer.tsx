@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import React from "react";
 import { css, jsx } from "@emotion/core";
+import styled from "@emotion/styled";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { Link } from "react-router-dom";

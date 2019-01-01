@@ -32,14 +32,14 @@ const styles = {
         fontFamily: '"relation-two", "sans-serif"',
         fontStyle: "normal",
         fontWeight: 700,
-        fontSize: "3em",
+        fontSize: "4em",
         paddingBottom: ".1em",
         margin: 0
     }),
     navText: css({
         color: "black",
         textDecoration: "none",
-        font: '1em "Europa-Light"'
+        font: '2em "Europa-Light"'
     })
 };
 

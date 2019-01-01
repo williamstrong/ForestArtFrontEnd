@@ -37,7 +37,10 @@ const ImageContainer = styled.img({
     transition: "all 0.5s linear",
     opacity: 1,
     borderRadius: "5px",
-    boxShadow: "10px 10px 6px 2px #ccc"
+    boxShadow: "10px 10px 6px 2px rgb(0,0,0,0.15)",
+    borderColor: "#efefef",
+    borderWidth: "1px",
+    borderStyle: "double"
 });
 
 const Container = styled.div({
@@ -58,8 +61,6 @@ const Container = styled.div({
         boxShadow: "1px 1px 6px 5px #ccc"
     }
 });
-
-// Styles
 
 const styles = {
     header: css({
