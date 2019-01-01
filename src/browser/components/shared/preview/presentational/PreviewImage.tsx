@@ -28,7 +28,17 @@ const TextContainer = styled.div({
 
     visibility: "hidden",
     opacity: 0,
-    transform: "translateY(1em)"
+    transform: "translateY(1em)",
+
+    "@media(max-width: 425px), (hover: none)": {
+        position: "unset",
+        opacity: "unset",
+        visibility: "unset",
+        padding: "unset",
+        transform: "unset",
+        alignItems: "center",
+        marginBottom: "1em"
+    }
 });
 
 const ImageContainer = styled.img({
@@ -59,15 +69,37 @@ const Container = styled.div({
     [`:hover ${ImageContainer}`]: {
         opacity: 0.3,
         boxShadow: "1px 1px 6px 5px #ccc"
+    },
+
+    "@media(max-width: 425px), (hover: none)": {
+        width: "80vw",
+        padding: "1em",
+        border: "solid #efefef",
+        top: "unset",
+        transform: "unset",
+
+        opacity: 1
     }
 });
 
 const styles = {
     header: css({
-        fontSize: "4em"
+        fontFamily: "europa-light",
+        fontSize: "4em",
+
+        "@media(max-width: 425px)": {
+            fontSize: "2em",
+            margin: 0
+        }
     }),
     paragraph: css({
-        fontSize: "2em"
+        fontFamily: "europa-light",
+        fontSize: "2em",
+
+        "@media(max-width: 425px)": {
+            fontSize: "1em",
+            margin: "auto"
+        }
     })
 };
 

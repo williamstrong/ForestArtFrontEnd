@@ -14,7 +14,10 @@ const styles = {
         flexFlow: "row wrap",
         justifyContent: "center",
 
-        textAlign: "center"
+        "@media(max-width: 425px)": {
+            flexFlow: "column nowrap",
+            alignItems: "center"
+        }
     }),
     link: css({
         color: "black",

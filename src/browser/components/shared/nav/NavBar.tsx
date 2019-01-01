@@ -25,8 +25,8 @@ const textPositions = [
 const styles = {
     navStyle: css({
         textAlign: "center",
-        marginTop: "10%",
-        marginBottom: "5%"
+        marginTop: "5vh",
+        marginBottom: "5vh"
     }),
     name: css({
         fontFamily: '"relation-two", "sans-serif"',
@@ -34,12 +34,20 @@ const styles = {
         fontWeight: 700,
         fontSize: "4em",
         paddingBottom: ".1em",
-        margin: 0
+        margin: 0,
+
+        "@media(max-width: 425px)": {
+            fontSize: "2em"
+        }
     }),
     navText: css({
         color: "black",
         textDecoration: "none",
-        font: '2em "Europa-Light"'
+        font: '2em "Europa-Light"',
+
+        "@media(max-width: 425px)": {
+            fontSize: "1em"
+        }
     })
 };
 
