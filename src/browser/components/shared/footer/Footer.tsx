@@ -12,9 +12,10 @@ const igLogo =
 
 const styles = {
     footer: css({
-        marginTop: "5%",
-        paddingTop: "5%",
-        width: "100%",
+        marginTop: "5vh",
+        paddingTop: "2vh",
+        paddingBottom: "2vh",
+        width: "100vw",
         textAlign: "center",
         background: "grey"
     }),
@@ -22,25 +23,20 @@ const styles = {
         fontFamily: '"relation-two", "sans-serif"',
         fontWeight: 700,
         fontSize: "2em",
-        margin: 0
+        marginTop: "1vh",
+        marginBottom: "1vh"
     }),
-    text: css({
-        margin: "15",
+    nav: css({
+        marginTop: "1vh",
+        marginBottom: "1vh"
+    }),
+    navText: css({
+        textDecoration: "underline",
         color: "black",
-        font: "2em Europa-Light"
+
+        marginLeft: "1vw",
+        marginRight: "1vw"
     }),
-    navText: css(`
-    textDecoration: 'none',
-    color: 'black',
-
-    margin: '1em',
-
-    transition: 'all 0.3s linear',
-    ':hover': {
-      opacity: '0.8',
-      textShadow: '1px 1px #0000003B',
-    },
-  `),
     instagram: css({
         margin: "15px",
         height: "30px",
@@ -78,7 +74,7 @@ const pages = [
 const Footer = () => (
     <footer css={styles.footer}>
         <p css={styles.nameText}>A Forest Art</p>
-        <nav>
+        <nav css={styles.nav}>
             {pages.map(page => (
                 <Link key={page.key} to={page.href} css={styles.navText}>
                     {page.name}
