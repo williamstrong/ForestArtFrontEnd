@@ -8,7 +8,12 @@ import { RouteComponentProps } from "react-router-dom";
 import CategoryBox from "../presentational/CategoryBox";
 
 const styles = {
-    container: css({})
+    container: css({
+        display: "flex",
+        flexFlow: "row wrap",
+        justifyContent: "center",
+        alignItems: "center"
+    })
 };
 
 export interface CategoriesContainerProps extends RouteComponentProps {}
