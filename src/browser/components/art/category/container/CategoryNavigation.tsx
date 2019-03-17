@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import React from "react";
 
 import CategoryLink from "../presentational/CategoryLink";
 
@@ -30,7 +29,7 @@ export interface CategoryNavigationProps {
     stylePosition: string;
 }
 
-export default function CategoryNavigation(props: CategoryNavigationProps) {
+export default function CategoryNavigation(props: CategoryNavigationProps) : JSX.Element {
     const { styleBase, stylePosition } = props;
 
     return (

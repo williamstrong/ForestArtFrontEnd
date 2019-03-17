@@ -6,7 +6,7 @@ import { RouteComponentProps } from "react-router-dom";
 import ArtNav from "../ArtNav";
 import CategoriesContainer from "./container/CategoriesContainer";
 
-const Categories = (props: RouteComponentProps) => (
+const Categories = (props: RouteComponentProps) : JSX.Element => (
     <React.Fragment>
         <ArtNav />
         <CategoriesContainer {...props} />

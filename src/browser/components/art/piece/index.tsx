@@ -3,7 +3,7 @@ import { css, jsx } from "@emotion/core";
 import React, { Component } from "react";
 
 import ArtNav from "../ArtNav";
-import CategoryNavigation from "../category/container/CategoryNavigation";
+import CategoryNavigation from "../Category/container/CategoryNavigation";
 import PieceContainer from "./container/PieceContainer";
 
 const styles = {

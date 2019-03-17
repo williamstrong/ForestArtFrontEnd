@@ -2,11 +2,11 @@ import React from "react";
 
 export interface HtmlProps {
     content: string;
-    state: any;
+    state: any; // eslint-disable-line @typescript-eslint/no-explicit-any
     title?: string;
 }
 
-const Html = (props: HtmlProps) => (
+const Html  = (props: HtmlProps) : JSX.Element => (
     <html css="no-js" lang="">
         <head>
             <meta charSet="utf-8" />

@@ -5,7 +5,7 @@ import client from "../util/Client";
 
 import Routes from "./routes";
 
-const App = () => (
+const App = () : JSX.Element => (
     <ApolloProvider client={client}>
         <Routes />
     </ApolloProvider>

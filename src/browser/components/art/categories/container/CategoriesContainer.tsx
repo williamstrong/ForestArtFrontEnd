@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import gql from "graphql-tag";
-import React from "react";
 import { Query } from "react-apollo";
 import { RouteComponentProps } from "react-router-dom";
 
@@ -33,9 +32,8 @@ const query = gql`
         }
     }
 `;
-export interface CategoriesContainerProps extends RouteComponentProps {}
 
-export default function CategoiesContainer(props: CategoriesContainerProps) {
+export default function CategoiesContainer(props: RouteComponentProps) : JSX.Element {
     const {
         match: { url }
     } = props;

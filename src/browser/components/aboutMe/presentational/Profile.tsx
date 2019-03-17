@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import React from "react";
 
 const styles = {
     container: css({
@@ -22,7 +21,7 @@ export interface ProfileProps {
     imageAlt: string;
 }
 
-const Profile = (props: ProfileProps) => {
+const Profile = (props: ProfileProps) : JSX.Element => {
     const { description, imageSrc, imageAlt } = props;
     return (
         <div css={styles.container}>

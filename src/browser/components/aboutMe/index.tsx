@@ -4,7 +4,7 @@ import Footer from "../shared/Footer";
 import ProfileContainer from "./containers/ProfileContainer";
 import AboutMeNav from "./nav/AboutMeNav";
 
-const AboutMe = () => (
+const AboutMe = () : JSX.Element => (
     <div>
         <AboutMeNav />
         <ProfileContainer />

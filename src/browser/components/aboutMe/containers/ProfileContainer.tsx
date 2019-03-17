@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React, { Component } from "react";
+import { Component } from "react";
 
 import Profile from "../presentational/Profile";
 import { jsx } from "@emotion/core";
@@ -19,7 +19,7 @@ export default class ProfileContainer extends Component<ProfileContainerProps> {
         imageAlt: "Alexandra"
     };
 
-    public render() {
+    public render() : JSX.Element {
         const { description, imageSrc, imageAlt } = this.props;
         return (
             <Profile

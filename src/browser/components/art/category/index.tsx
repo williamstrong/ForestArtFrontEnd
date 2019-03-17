@@ -22,7 +22,7 @@ export interface CategoryProp {
     };
 }
 
-export default function Category(props: CategoryProp) {
+export default function Category(props: CategoryProp) : JSX.Element {
     const {
         match: {
             params: { category }

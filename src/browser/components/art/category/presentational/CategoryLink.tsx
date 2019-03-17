@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import React from "react";
 
 import { Link } from "react-router-dom";
 
@@ -20,7 +19,7 @@ export interface CategoryLinkProps {
     category: string;
 }
 
-export default function CategoryLink(props: CategoryLinkProps) {
+export default function CategoryLink(props: CategoryLinkProps) : JSX.Element {
     return (
         <Link to={props.href} css={styles.link}>
             {props.name}
