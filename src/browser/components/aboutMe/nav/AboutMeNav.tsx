@@ -1,6 +1,6 @@
 import React from "react";
 
-import NavBar from "../../shared/nav/NavBar";
+import NavBar from "../../shared/NavBar";
 
 import { name, navPosition, pages } from "../constants/Navigation";
 

@@ -1,9 +1,8 @@
 /** @jsx jsx */
-import React from "react";
 import { css, jsx } from "@emotion/core";
-import styled from "@emotion/styled";
-import { Query } from "react-apollo";
 import gql from "graphql-tag";
+import React from "react";
+import { Query } from "react-apollo";
 import { Link } from "react-router-dom";
 
 import PreviewImage from "../presentational/PreviewImage";
@@ -34,11 +33,11 @@ interface PreviewContainerProps {
 export default class PreviewContainer extends React.Component<
     PreviewContainerProps
 > {
-    static defaultProps = {
+    public static defaultProps = {
         category: ""
     };
 
-    render() {
+    public render() {
         const { category } = this.props;
         return (
             <Query

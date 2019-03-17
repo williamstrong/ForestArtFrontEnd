@@ -3,7 +3,6 @@ import express from "express";
 import React from "react";
 import ReactDOM from "react-dom/server";
 import { ApolloProvider, getDataFromTree } from "react-apollo";
-import { renderToString, renderToStaticMarkup } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
 import Routes from "../browser/components/routes";
 import Html from "./template";

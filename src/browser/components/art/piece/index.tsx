@@ -2,8 +2,8 @@
 import { css, jsx } from "@emotion/core";
 import React, { Component } from "react";
 
-import CategoryNavigation from "../category/container/CategoryNavigationContainer";
-import ArtNav from "../nav/ArtNav";
+import ArtNav from "../ArtNav";
+import CategoryNavigation from "../category/container/CategoryNavigation";
 import PieceContainer from "./container/PieceContainer";
 
 const styles = {

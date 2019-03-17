@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import { css, jsx } from "@emotion/core";
 import React, { Component } from "react";
 
 import Profile from "../presentational/Profile";
+import { jsx } from "@emotion/core";
 
 export interface ProfileContainerProps {
     description: string;

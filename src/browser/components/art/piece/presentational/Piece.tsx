@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import PropTypes from "prop-types";
 import React from "react";
 
 import getImageSource from "../../../../util/Source";

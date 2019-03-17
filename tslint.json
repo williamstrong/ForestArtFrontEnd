@@ -10,10 +10,7 @@
     "rules": {
       "interface-name": [
         true,
-        {
-          "options": "never-prefix"
-        }
-      ],
+       "never-prefix"],
       "min-class-cohesion": true,
       "newspaper-order": true,
       "no-flag-args": true,
@@ -24,10 +21,10 @@
       "no-commented-out-code": true,
       "jsx-alignment": true,
       "jsx-curly-spacing": {
-        "options": "always"
+        "options": "never"
       },
       "jsx-equals-spacing": {
-        "options": "always"
+        "options": "never"
       },
       "jsx-key": true,
       "jsx-no-bind": true,

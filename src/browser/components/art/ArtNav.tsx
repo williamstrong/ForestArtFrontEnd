@@ -1,8 +1,8 @@
 import React from "react";
 
-import NavBar from "../../shared/nav/NavBar";
+import NavBar from "../shared/NavBar";
 
-import { name, navPosition, pages } from "../constants/Navigation";
+import { name, navPosition, pages } from "./constants/Navigation";
 
 const ArtNav = () => <NavBar css={navPosition} pages={pages} name={name} />;
 

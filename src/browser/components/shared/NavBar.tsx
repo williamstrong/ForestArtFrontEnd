@@ -1,11 +1,8 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import styled from "@emotion/styled";
 import React from "react";
 
 import { Link } from "react-router-dom";
-
-import Name from "../name/Name";
 
 const textPositions = [
     css({

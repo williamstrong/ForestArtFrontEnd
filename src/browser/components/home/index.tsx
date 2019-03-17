@@ -1,12 +1,11 @@
 /** @jsx jsx */
-import { css, jsx } from "@emotion/core";
 import React from "react";
+import { jsx } from "@emotion/core";
 
-import Footer from "../shared/footer/Footer";
-import NavBar from "../shared/nav/NavBar";
-import PreviewContainer from "../shared/preview/container/PreviewContainer";
-import HeaderCanvasContainer from "./container/HeaderCanvasContainer";
+import Footer from "../shared/Footer";
 import HorizontalRule from "../shared/HorizontalRule";
+import NavBar from "../shared/NavBar";
+import PreviewContainer from "../shared/preview/container/PreviewContainer";
 
 const pages = [
     {

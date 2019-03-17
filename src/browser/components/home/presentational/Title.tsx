@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import PropTypes from "prop-types";
 import React from "react";
 
 const style = {
@@ -19,7 +18,7 @@ export interface TitleProps {
 
 const Title = (props: TitleProps) => (
     <div css={style.container}>
-        <p css={style.title}>{name}</p>
+        <p css={style.title}>{props.name}</p>
     </div>
 );
 

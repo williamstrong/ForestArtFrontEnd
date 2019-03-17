@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import PropTypes from "prop-types";
 import React from "react";
 
 import { Link } from "react-router-dom";
@@ -21,10 +20,10 @@ export interface CategoryLinkProps {
     category: string;
 }
 
-const CategoryLink = (props: CategoryLinkProps) => (
-    <Link to={props.href} css={styles.link}>
-        {props.name}
-    </Link>
-);
-
-export default CategoryLink;
+export default function CategoryLink(props: CategoryLinkProps) {
+    return (
+        <Link to={props.href} css={styles.link}>
+            {props.name}
+        </Link>
+    );
+}

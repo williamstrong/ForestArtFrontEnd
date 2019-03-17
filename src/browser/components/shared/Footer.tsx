@@ -3,7 +3,6 @@ import { css, jsx } from "@emotion/core";
 import React from "react";
 
 import { Link } from "react-router-dom";
-// import Nav from "../nav/Nav";
 
 const altText = "Alexandra Forest's instagram page.";
 const igLink = "http://www.instagram.com/aforestart";
